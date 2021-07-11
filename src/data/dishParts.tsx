@@ -20,4 +20,22 @@ const jercemell_roston: DishPart = {
   },
 };
 
-export { jercemell_roston };
+const mock_dishPart: DishPart = {
+  name: 'mock',
+  ingredients: [csirkemell],
+  diet: {
+    vegan: false,
+    vegetarian: false,
+    ibd_friendly: true,
+  },
+  temp: Temperature.MELEG,
+  prep: {
+    speed: Speed.GYORS,
+    difficulty: Difficulty.KÖNNYŰ,
+    cost: Cost.KÖZEPES,
+    pre_cookable: true,
+    freezable: true,
+  },
+};
+
+export { jercemell_roston, mock_dishPart };

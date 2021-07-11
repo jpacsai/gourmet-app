@@ -10,9 +10,13 @@ type Props = {
 };
 
 const Page: React.FC<Props> = ({ meal }) => {
+  const image = meal.details.images
+    ? meal.details.images.main || (meal.details.images.parts ? meal.details.images.parts[0] : '')
+    : '';
+  const mock_image = 'https://freeiconshop.com/wp-content/uploads/edd/food-flat.png';
   return (
     <Card className="meal-card" interactive={true} elevation={Elevation.TWO}>
-      <div className="meal-card__image-container"></div>
+      <div className="meal-card__image-container" style={{ backgroundImage: `url(${image || mock_image})` }} />
       <div className="meal-card__content">
         <div className="meal-card__details">
           <CategoryTag meal={meal} />

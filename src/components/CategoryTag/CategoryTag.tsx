@@ -1,5 +1,3 @@
-import { Card, Elevation } from '@blueprintjs/core';
-
 import './CategoryTag.scss';
 
 import { Meal } from '../../data/types';
