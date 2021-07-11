@@ -1,0 +1,13 @@
+import { IngredientType, Ingredient } from './types';
+
+const csirkemell: Ingredient = {
+  name: 'csirkemell',
+  ingredient_type: IngredientType.HÚS,
+  diet: {
+    vegan: false,
+    vegetarian: false,
+    ibd_friendly: true,
+  },
+};
+
+export { csirkemell };

@@ -1,3 +1,4 @@
+import { jercemell_roston } from './dishParts';
 import {
   MealWithoutDetails,
   Meal,
@@ -7,47 +8,10 @@ import {
   Speed,
   Difficulty,
   Cost,
-  Temperature,
   DishPart,
-  IngredientType,
   Ingredient,
   Diet,
 } from './types';
-
-// INGREDIENTS
-
-const csirkemell: Ingredient = {
-  name: 'csirkemell',
-  ingredient_type: IngredientType.HÚS,
-  diet: {
-    vegan: false,
-    vegetarian: false,
-    ibd_friendly: true,
-  },
-};
-
-// DISH PARTS
-
-export const jercemell_roston: DishPart = {
-  name: 'jercemell',
-  ingredients: [csirkemell],
-  diet: {
-    vegan: false,
-    vegetarian: false,
-    ibd_friendly: true,
-  },
-  temp: Temperature.MELEG,
-  image_link: 'https://www.mindmegette.hu/images/235/O/csirkemell-roston-2.jpg',
-  prep: {
-    speed: Speed.GYORS,
-    difficulty: Difficulty.KÖNNYŰ,
-    cost: Cost.KÖZEPES,
-    pre_cookable: true,
-    freezable: true,
-  },
-};
-
-// MEAL
 
 const jerce_lecsos_burg: MealWithoutDetails = {
   name: 'Jércemell, lecsós burgonya',
@@ -93,8 +57,8 @@ export const getAllImages = (meal: MealWithoutDetails): Meal['details']['images'
 
   return main_image || part_images
     ? {
-        ...(main_image ? main_image : {}),
-        ...(part_images ? part_images : {}),
+        ...(main_image || {}),
+        ...(part_images || {}),
       }
     : undefined;
 };
