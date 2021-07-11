@@ -1,10 +1,43 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
+import Page from './components/Page/Page';
+import Dishes from './pages/dishes';
+import Menus from './pages/menus';
+
 import './App.scss';
 
-function App() {
-  return <div className="App"></div>;
-}
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="App">
+        <ul>
+          <li>
+            <Link to="/">Kezdőlap</Link>
+          </li>
+          <li>
+            <Link to="/fogasok">Fogások</Link>
+          </li>
+          <li>
+            <Link to="/menuk">Menüsorok</Link>
+          </li>
+        </ul>
+        <hr />
+
+        <Switch>
+          <Route exact path="/">
+            <Page title="Kezdőlap" />
+          </Route>
+          <Route path="/fogasok">
+            <Dishes />
+          </Route>
+          <Route path="/menuk">
+            <Menus />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+};
 
 export default App;
