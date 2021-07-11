@@ -5,12 +5,12 @@ import Page from './components/Page/Page';
 import Dishes from './pages/dishes';
 import Menus from './pages/menus';
 
-import './App.scss';
+import './styles/App.scss';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="App">
+      <div className="App my-blueprint-theme">
         <ul>
           <li>
             <Link to="/">Kezdőlap</Link>
