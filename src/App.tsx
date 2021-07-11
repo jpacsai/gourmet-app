@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Page from './components/Page/Page';
-import Dishes from './pages/dishes';
+// import Home from './pages/home';
+import Meals from './pages/meals';
 import Menus from './pages/menus';
 
 import './styles/App.scss';
@@ -29,7 +30,7 @@ const App: React.FC = () => {
             <Page title="Kezdőlap" />
           </Route>
           <Route path="/fogasok">
-            <Dishes />
+            <Meals />
           </Route>
           <Route path="/menuk">
             <Menus />
