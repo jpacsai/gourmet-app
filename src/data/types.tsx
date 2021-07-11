@@ -126,17 +126,16 @@ export enum Time {
 
 /* --- CATEGORIES --- */
 
-export type Category = Appetizer | Main | Dessert;
+export type Category = Soup | Main | Dessert;
 
 export enum CategoryName {
-  APPETIZER = 'APPETIZER',
+  SOUP = 'SOUP',
   MAIN = 'MAIN',
   DESSERT = 'DESSERT',
 }
 
-export type Appetizer = {
-  category_name: CategoryName.APPETIZER;
-  sub_category: AppetizerSubCat;
+export type Soup = {
+  category_name: CategoryName.SOUP;
 };
 
 export type Main = {
@@ -149,12 +148,6 @@ export type Dessert = {
   sub_category: DessertSubCat;
   temp: Temperature;
 };
-
-export enum AppetizerSubCat {
-  HIDEG = 'HIDEG',
-  MELEG = 'MELEG',
-  LEVES = 'LEVES',
-}
 
 export enum MainSubCat {
   HÚS = 'HÚS',

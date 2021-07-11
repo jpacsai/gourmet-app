@@ -5,12 +5,14 @@ import {
   Time,
   CategoryName,
   MainSubCat,
+  DessertSubCat,
   Speed,
   Difficulty,
   Cost,
   DishPart,
   Ingredient,
   Diet,
+  Temperature,
 } from './types';
 
 const jerce_lecsos_burg: MealWithoutDetails = {
@@ -19,6 +21,74 @@ const jerce_lecsos_burg: MealWithoutDetails = {
   category: {
     category_name: CategoryName.MAIN,
     sub_category: MainSubCat.HÚS,
+  },
+  dish_parts: [jercemell_roston],
+  prep: {
+    speed: Speed.ORA_1,
+    difficulty: Difficulty.KÖZEPES,
+    cost: Cost.KÖZEPES,
+    pre_cookable: false,
+    freezable: false,
+  },
+};
+
+const kacsamaj_jerce_sutotok: MealWithoutDetails = {
+  name: 'Kacsamájjal töltött jércemell, sütőtökös rizottó, spenót',
+  time: [Time.EBÉD_VACSORA],
+  category: {
+    category_name: CategoryName.MAIN,
+    sub_category: MainSubCat.HÚS,
+  },
+  dish_parts: [jercemell_roston],
+  prep: {
+    speed: Speed.ORA_1,
+    difficulty: Difficulty.KÖZEPES,
+    cost: Cost.KÖZEPES,
+    pre_cookable: false,
+    freezable: false,
+  },
+};
+
+const sutotok_leves_kacsa: MealWithoutDetails = {
+  name: 'Sütőtök krémleves, füstölt libamell, zsendice gombóc',
+  time: [Time.EBÉD_VACSORA],
+  category: {
+    category_name: CategoryName.SOUP,
+  },
+  dish_parts: [jercemell_roston],
+  prep: {
+    speed: Speed.ORA_1,
+    difficulty: Difficulty.KÖZEPES,
+    cost: Cost.KÖZEPES,
+    pre_cookable: false,
+    freezable: false,
+  },
+};
+
+const carpaccio_burg_kel: MealWithoutDetails = {
+  name: 'Carpaccio, parázsburgonya, kel, sült paprika, füstölt halas majonéz, jus, olíva, lime',
+  time: [Time.EBÉD_VACSORA],
+  category: {
+    category_name: CategoryName.MAIN,
+    sub_category: MainSubCat.HÚS,
+  },
+  dish_parts: [jercemell_roston],
+  prep: {
+    speed: Speed.ORA_1,
+    difficulty: Difficulty.KÖZEPES,
+    cost: Cost.KÖZEPES,
+    pre_cookable: false,
+    freezable: false,
+  },
+};
+
+const mandulas_flodni: MealWithoutDetails = {
+  name: 'Mandulás flódni, forralt bor sorbet, édes morzsa',
+  time: [Time.EBÉD_VACSORA],
+  category: {
+    category_name: CategoryName.DESSERT,
+    sub_category: DessertSubCat.SÜTEMÉNY,
+    temp: Temperature.SZOBA,
   },
   dish_parts: [jercemell_roston],
   prep: {
@@ -79,4 +149,10 @@ const mock_parsed_data = (meals: MealWithoutDetails[]): Meal[] => {
   }));
 };
 
-export const mock_data: Meal[] = mock_parsed_data([jerce_lecsos_burg]);
+export const mock_data: Meal[] = mock_parsed_data([
+  sutotok_leves_kacsa,
+  carpaccio_burg_kel,
+  mandulas_flodni,
+  kacsamaj_jerce_sutotok,
+  jerce_lecsos_burg,
+]);
