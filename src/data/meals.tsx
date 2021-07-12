@@ -13,14 +13,16 @@ import {
   Ingredient,
   Diet,
   Temperature,
+  MeatCategory,
 } from './types';
 
 const jerce_lecsos_burg: MealWithoutDetails = {
   name: 'Jércemell, lecsós burgonya',
   time: [Time.EBÉD_VACSORA],
   category: {
-    category_name: CategoryName.MAIN,
-    sub_category: MainSubCat.HÚS,
+    name: CategoryName.MAIN,
+    sub_category_name: MainSubCat.HÚS,
+    meat_category: MeatCategory.SZÁRNYAS,
   },
   dish_parts: [jercemell_roston],
   prep: {
@@ -36,8 +38,9 @@ const kacsamaj_jerce_sutotok: MealWithoutDetails = {
   name: 'Kacsamájjal töltött jércemell, sütőtökös rizottó, spenót',
   time: [Time.EBÉD_VACSORA],
   category: {
-    category_name: CategoryName.MAIN,
-    sub_category: MainSubCat.HÚS,
+    name: CategoryName.MAIN,
+    sub_category_name: MainSubCat.HÚS,
+    meat_category: MeatCategory.SZÁRNYAS,
   },
   dish_parts: [jercemell_roston],
   link: 'https://www.facebook.com/szentdonatborkuria/photos/a.1603505859862862/2407602172786556',
@@ -56,8 +59,9 @@ const bbq_marha_gersli_rizotto: MealWithoutDetails = {
   name: 'BBQ marhaoldalas, zöldséges gersli rizottó',
   time: [Time.EBÉD_VACSORA],
   category: {
-    category_name: CategoryName.MAIN,
-    sub_category: MainSubCat.HÚS,
+    name: CategoryName.MAIN,
+    sub_category_name: MainSubCat.HÚS,
+    meat_category: MeatCategory.MARHA,
   },
   dish_parts: [jercemell_roston],
   link: 'https://www.facebook.com/szentdonatborkuria/photos/a.1603505859862862/2407602172786556',
@@ -76,8 +80,9 @@ const rantotthus_burg_pure: MealWithoutDetails = {
   name: 'Rántott hús, petrezselymes burgonyapüré, tejfölös uborkasaláta',
   time: [Time.EBÉD_VACSORA],
   category: {
-    category_name: CategoryName.MAIN,
-    sub_category: MainSubCat.HÚS,
+    name: CategoryName.MAIN,
+    sub_category_name: MainSubCat.HÚS,
+    meat_category: MeatCategory.SERTÉS,
   },
   dish_parts: [mock_dishPart],
   prep: {
@@ -93,7 +98,7 @@ const sutotok_leves_kacsa: MealWithoutDetails = {
   name: 'Sütőtök krémleves, füstölt libamell, zsendice gombóc',
   time: [Time.EBÉD_VACSORA],
   category: {
-    category_name: CategoryName.SOUP,
+    name: CategoryName.SOUP,
   },
   link: 'https://www.facebook.com/szentdonatborkuria/photos/a.1582942508585864/2164053320474777/',
   image:
@@ -112,8 +117,9 @@ const carpaccio_burg_kel: MealWithoutDetails = {
   name: 'Carpaccio, parázsburgonya, kel, sült paprika, füstölt halas majonéz, jus, olíva, lime',
   time: [Time.EBÉD_VACSORA],
   category: {
-    category_name: CategoryName.MAIN,
-    sub_category: MainSubCat.HÚS,
+    name: CategoryName.MAIN,
+    sub_category_name: MainSubCat.HÚS,
+    meat_category: MeatCategory.MARHA,
   },
   dish_parts: [jercemell_roston],
   link: 'https://www.facebook.com/LaposaBirtok/photos/a.273670136050395/4038830336201004/',
@@ -132,8 +138,8 @@ const mandulas_flodni: MealWithoutDetails = {
   name: 'Mandulás flódni, forralt bor sorbet, édes morzsa',
   time: [Time.EBÉD_VACSORA],
   category: {
-    category_name: CategoryName.DESSERT,
-    sub_category: DessertSubCat.SÜTEMÉNY,
+    name: CategoryName.DESSERT,
+    sub_category_name: DessertSubCat.SÜTEMÉNY,
     temp: Temperature.SZOBA,
   },
   dish_parts: [jercemell_roston],

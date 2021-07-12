@@ -28,7 +28,7 @@ export enum Cost {
   NAGYON_DRÁGA,
 }
 
-export enum Cousisine {
+export enum Cousine {
   MAGYAR,
   OLASZ,
   SPANYOL,
@@ -61,7 +61,7 @@ export type MealWithoutDetails = {
   category?: Category;
   dish_parts: DishPart[];
   prep: Preparation;
-  couisine?: Cousisine[];
+  couisine?: Cousine[];
   likes?: Likes[];
   wine?: string[];
 };
@@ -87,7 +87,7 @@ export type DishPart = {
   name: string;
   recipe_link?: string;
   ingredients: Ingredient[];
-  diet: Diet; // func
+  diet: Diet;
   image_link?: string;
   temp: Temperature;
   prep: Preparation;
@@ -135,19 +135,39 @@ export enum CategoryName {
 }
 
 export type Soup = {
-  category_name: CategoryName.SOUP;
+  name: CategoryName.SOUP;
 };
 
-export type Main = {
-  category_name: CategoryName.MAIN;
-  sub_category: MainSubCat;
-};
+export type Main = Fozelek | Meat | Pasta | Onepot;
 
 export type Dessert = {
-  category_name: CategoryName.DESSERT;
-  sub_category: DessertSubCat;
+  name: CategoryName.DESSERT;
+  sub_category_name: DessertSubCat;
   temp: Temperature;
 };
+
+export interface Fozelek extends MainCategory {
+  sub_category_name: MainSubCat.FŐZELÉK;
+}
+
+export type MainCategory = {
+  name: CategoryName.MAIN;
+};
+
+export interface Meat extends MainCategory {
+  sub_category_name: MainSubCat.HÚS;
+  meat_category: MeatCategory;
+}
+
+export interface Pasta extends MainCategory {
+  sub_category_name: MainSubCat.TÉSZTA;
+  meat_category: MeatCategory;
+}
+
+export interface Onepot extends MainCategory {
+  sub_category_name: MainSubCat.EGYTÁL;
+  meat_category: MeatCategory;
+}
 
 export enum MainSubCat {
   HÚS = 'HÚS',
@@ -160,4 +180,12 @@ export enum DessertSubCat {
   TORTA = 'TORTA',
   SÜTEMÉNY = 'SÜTEMÉNY',
   DESSZERT = 'DESSZERT',
+}
+
+export enum MeatCategory {
+  MARHA = 'MARHA',
+  SERTÉS = 'SERTÉS',
+  SZÁRNYAS = 'SZÁRNYAS',
+  HAL = 'HAL',
+  VEGA = 'VEGA',
 }
