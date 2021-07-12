@@ -1,7 +1,5 @@
-import { jercemell_roston, mock_dishPart } from './dishParts';
 import {
   MealWithoutDetails,
-  Meal,
   Time,
   CategoryName,
   MainSubCat,
@@ -9,12 +7,11 @@ import {
   Speed,
   Difficulty,
   Cost,
-  DishPart,
-  Ingredient,
-  Diet,
   Temperature,
   MeatCategory,
 } from './types';
+
+import { jercemell_roston, mock_dishPart } from './dishParts';
 
 const jerce_lecsos_burg: MealWithoutDetails = {
   name: 'Jércemell, lecsós burgonya',
@@ -155,56 +152,7 @@ const mandulas_flodni: MealWithoutDetails = {
   },
 };
 
-export const getAllIngredients = (dish_parts: DishPart[]): Ingredient[] => {
-  return dish_parts.reduce((all, { ingredients }): Ingredient[] => {
-    return [...all, ...ingredients];
-  }, [] as any);
-};
-
-export const getAllDietDetails = (dish_parts: DishPart[]): Diet => {
-  const allIngredients = getAllIngredients(dish_parts);
-  return {
-    vegan: allIngredients.every((ingredient) => ingredient.diet.vegan),
-    vegetarian: allIngredients.every((ingredient) => ingredient.diet.vegetarian),
-    ibd_friendly: allIngredients.every((ingredient) => ingredient.diet.ibd_friendly),
-  };
-};
-
-export const getAllImages = (meal: MealWithoutDetails): Meal['details']['images'] => {
-  const main_image = meal.image ? { main: meal.image } : undefined;
-
-  const dish_part_images: string[] = meal.dish_parts.reduce(
-    (images, part) => (part.image_link ? [...images, part.image_link] : images),
-    [] as string[]
-  );
-
-  const part_images = dish_part_images.length > 0 ? { parts: dish_part_images } : undefined;
-
-  return main_image || part_images
-    ? {
-        ...(main_image || {}),
-        ...(part_images || {}),
-      }
-    : undefined;
-};
-
-const getMealDetails = (meal: MealWithoutDetails) => {
-  const allImages = getAllImages(meal);
-  return {
-    ingredients: getAllIngredients(meal.dish_parts),
-    diet: getAllDietDetails(meal.dish_parts),
-    ...(allImages ? { images: allImages } : {}),
-  };
-};
-
-const mock_parsed_data = (meals: MealWithoutDetails[]): Meal[] => {
-  return meals.map((meal) => ({
-    ...meal,
-    details: getMealDetails(meal),
-  }));
-};
-
-export const mock_data: Meal[] = mock_parsed_data([
+export {
   sutotok_leves_kacsa,
   carpaccio_burg_kel,
   mandulas_flodni,
@@ -212,4 +160,4 @@ export const mock_data: Meal[] = mock_parsed_data([
   jerce_lecsos_burg,
   rantotthus_burg_pure,
   bbq_marha_gersli_rizotto,
-]);
+};
