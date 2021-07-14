@@ -1,10 +1,24 @@
-import { MealWithoutDetails, Meal, DishPart, Ingredient, Diet } from './types';
+import {
+  MealWithoutDetails,
+  Meal,
+  DishPart,
+  Ingredient,
+  Diet,
+  Tag,
+  Time,
+  CategoryName,
+  DessertSubCat,
+  MainSubCat,
+  MeatCategory,
+} from './types';
 
 import {
   sutotok_leves_kacsa,
   carpaccio_burg_kel,
   mandulas_flodni,
+  medvehagyma_spenot_fozelek,
   kacsamaj_jerce_sutotok,
+  tojasos_nokedli,
   jerce_lecsos_burg,
   rantotthus_burg_pure,
   bbq_marha_gersli_rizotto,
@@ -12,8 +26,10 @@ import {
 
 const meals = [
   sutotok_leves_kacsa,
+  tojasos_nokedli,
   carpaccio_burg_kel,
   mandulas_flodni,
+  medvehagyma_spenot_fozelek,
   kacsamaj_jerce_sutotok,
   jerce_lecsos_burg,
   rantotthus_burg_pure,
@@ -59,7 +75,39 @@ const getMealDetails = (meal: MealWithoutDetails) => {
     ingredients: getAllIngredients(meal.dish_parts),
     diet: getAllDietDetails(meal.dish_parts),
     ...(allImages ? { images: allImages } : {}),
+    tags: getTags(meal),
   };
+};
+
+const getTags = (meal: MealWithoutDetails): Tag[] => {
+  const { time, category } = meal;
+  const tags = [];
+  if (time.includes(Time.REGGELI)) tags.push(Tag.REGGELI);
+  if (time.includes(Time.BRUNCH_UZSONNA)) tags.push(Tag.KÖNNYŰ);
+  if (category) {
+    const { name } = category;
+    if (name === CategoryName.SOUP) tags.push(Tag.LEVES);
+    else if (category.name === CategoryName.DESSERT) {
+      if (category.sub_category.name === DessertSubCat.DESSZERT) tags.push(Tag.DESSZERT);
+      else if (category.sub_category.name === DessertSubCat.SÜTEMÉNY) tags.push(Tag.SÜTEMÉNY);
+      else tags.push(Tag.TORTA);
+    } else if (category.name === CategoryName.MAIN) {
+      const { sub_category } = category;
+      if (sub_category.name === MainSubCat.FŐZELÉK) tags.push(Tag.FŐZELÉK);
+      else {
+        if (sub_category.name === MainSubCat.EGYTÁL) tags.push(Tag.EGYTÁL);
+        else if (sub_category.name === MainSubCat.HÚS) tags.push(Tag.HÚS);
+        else tags.push(Tag.TÉSZTA);
+
+        if (sub_category.meat === MeatCategory.HAL) tags.push(Tag.HAL);
+        else if (sub_category.meat === MeatCategory.MARHA) tags.push(Tag.MARHA);
+        else if (sub_category.meat === MeatCategory.SERTÉS) tags.push(Tag.SERTÉS);
+        else if (sub_category.meat === MeatCategory.SZÁRNYAS) tags.push(Tag.SZÁRNYAS);
+        else if (sub_category.name !== MainSubCat.HÚS) tags.push(Tag.VEGA);
+      }
+    }
+  }
+  return tags;
 };
 
 const mock_parsed_data = (meals: MealWithoutDetails[]): Meal[] => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Page from './components/Page/Page';
-// import Home from './pages/home';
+import Home from './pages/colors';
 import Meals from './pages/meals';
 import Menus from './pages/menus';
 
@@ -22,6 +22,9 @@ const App: React.FC = () => {
           <li>
             <Link to="/menuk">Menüsorok</Link>
           </li>
+          <li>
+            <Link to="/colors">Colors</Link>
+          </li>
         </ul>
         <hr />
 
@@ -34,6 +37,9 @@ const App: React.FC = () => {
           </Route>
           <Route path="/menuk">
             <Menus />
+          </Route>
+          <Route path="/colors">
+            <Home />
           </Route>
         </Switch>
       </div>

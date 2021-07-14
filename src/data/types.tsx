@@ -75,7 +75,27 @@ export interface Meal extends MealWithoutDetails {
       parts?: string[];
     };
     links?: string[];
+    tags: Tag[];
   };
+}
+
+export enum Tag {
+  REGGELI = 'REGGELI',
+  STREET = 'STREET',
+  LEVES = 'LEVES',
+  FŐZELÉK = 'FŐZELÉK',
+  EGYTÁL = 'EGYTÁL',
+  HÚS = 'HÚS',
+  TÉSZTA = 'TÉSZTA',
+  MARHA = 'MARHA',
+  SZÁRNYAS = 'SZÁRNYAS',
+  SERTÉS = 'SERTÉS',
+  HAL = 'HAL',
+  VEGA = 'VEGA',
+  DESSZERT = 'DESSZERT',
+  TORTA = 'TORTA',
+  SÜTEMÉNY = 'SÜTEMÉNY',
+  KÖNNYŰ = 'KÖNNYŰ',
 }
 
 export type Likes = {
@@ -128,46 +148,54 @@ export enum Time {
 
 export type Category = Soup | Main | Dessert;
 
+export type Soup = {
+  name: CategoryName.SOUP;
+};
+
+export type CategoryType = {
+  name: CategoryName;
+  sub_category?: Main | Dessert;
+};
+
 export enum CategoryName {
   SOUP = 'SOUP',
   MAIN = 'MAIN',
   DESSERT = 'DESSERT',
 }
 
-export type Soup = {
-  name: CategoryName.SOUP;
-};
-
-export type Main = Fozelek | Meat | Pasta | Onepot;
-
 export type Dessert = {
   name: CategoryName.DESSERT;
-  sub_category_name: DessertSubCat;
-  temp: Temperature;
+  sub_category: {
+    name: DessertSubCat;
+    temp: Temperature;
+  };
 };
 
-export interface Fozelek extends MainCategory {
-  sub_category_name: MainSubCat.FŐZELÉK;
-}
-
-export type MainCategory = {
+export type Main = {
   name: CategoryName.MAIN;
+  sub_category: Fozelek | Meat | Pasta | Onepot;
 };
 
-export interface Meat extends MainCategory {
-  sub_category_name: MainSubCat.HÚS;
-  meat_category: MeatCategory;
-}
+// export type Main = Fozelek | Meat | Pasta | Onepot;
 
-export interface Pasta extends MainCategory {
-  sub_category_name: MainSubCat.TÉSZTA;
-  meat_category: MeatCategory;
-}
+export type Fozelek = {
+  name: MainSubCat.FŐZELÉK;
+};
 
-export interface Onepot extends MainCategory {
-  sub_category_name: MainSubCat.EGYTÁL;
-  meat_category: MeatCategory;
-}
+export type Meat = {
+  name: MainSubCat.HÚS;
+  meat: MeatOnlyCategory;
+};
+
+export type Pasta = {
+  name: MainSubCat.TÉSZTA;
+  meat: MeatCategory;
+};
+
+export type Onepot = {
+  name: MainSubCat.EGYTÁL;
+  meat: MeatCategory;
+};
 
 export enum MainSubCat {
   HÚS = 'HÚS',
@@ -180,6 +208,13 @@ export enum DessertSubCat {
   TORTA = 'TORTA',
   SÜTEMÉNY = 'SÜTEMÉNY',
   DESSZERT = 'DESSZERT',
+}
+
+export enum MeatOnlyCategory {
+  MARHA = 'MARHA',
+  SERTÉS = 'SERTÉS',
+  SZÁRNYAS = 'SZÁRNYAS',
+  HAL = 'HAL',
 }
 
 export enum MeatCategory {

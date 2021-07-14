@@ -4,7 +4,7 @@ import { useComponentId } from '../../hooks/useComponentId';
 import MealCard from '../../components/MealCard/MealCard';
 import Page from '../../components/Page/Page';
 
-import { mock_data } from '../../data/meals';
+import { mock_data } from '../../data/mock_data';
 
 const Meals: React.FC = () => {
   const componentId = useComponentId();
