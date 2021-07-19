@@ -74,7 +74,10 @@ export interface Meal extends MealWithoutDetails {
       main?: string;
       parts?: string[];
     };
-    links?: string[];
+    links?: {
+      main?: string;
+      parts?: string[];
+    };
     tags: Tag[];
   };
 }
@@ -113,7 +116,7 @@ export type Likes = {
 
 export type DishPart = {
   name: string;
-  recipe_link?: string;
+  link?: string;
   ingredients: Ingredient[];
   diet: Diet;
   image_link?: string;

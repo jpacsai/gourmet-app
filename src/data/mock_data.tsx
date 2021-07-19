@@ -69,6 +69,24 @@ export const getAllImages = (meal: MealWithoutDetails): Meal['details']['images'
     : undefined;
 };
 
+const getLinks = (meal: MealWithoutDetails): Meal['details']['links'] => {
+  const main_link = meal.link ? { main: meal.link } : undefined;
+
+  const dish_part_links: string[] = meal.dish_parts.reduce(
+    (links, part) => (part.link ? [...links, part.link] : links),
+    [] as string[]
+  );
+
+  const part_links = dish_part_links.length > 0 ? { parts: dish_part_links } : undefined;
+
+  return main_link || part_links
+    ? {
+        ...(main_link || {}),
+        ...(part_links || {}),
+      }
+    : undefined;
+};
+
 const getMealDetails = (meal: MealWithoutDetails) => {
   const allImages = getAllImages(meal);
   return {
@@ -76,6 +94,7 @@ const getMealDetails = (meal: MealWithoutDetails) => {
     diet: getAllDietDetails(meal.dish_parts),
     ...(allImages ? { images: allImages } : {}),
     tags: getTags(meal),
+    links: getLinks(meal),
   };
 };
 
