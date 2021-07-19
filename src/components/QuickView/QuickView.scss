@@ -16,8 +16,26 @@
   &__card_title {
     line-height: 1.5;
     font-size: 20px;
-    height: 48px;
-    margin: 10px 0 0;
-    text-align: center;
+    margin: 10px 0 20px;
+  }
+
+  &__details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      margin-top: 7px;
+    }
+  }
+
+  &__detail-icon {
+    color: #bc5173;
   }
 }

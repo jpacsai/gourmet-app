@@ -87,6 +87,14 @@ const getLinks = (meal: MealWithoutDetails): Meal['details']['links'] => {
     : undefined;
 };
 
+const getTime = (meal: MealWithoutDetails) => {
+  const { speed } = meal.prep;
+  const hrs = Math.floor(speed / 60);
+  const mins = speed % 60;
+  const time = `${hrs ? `${hrs} hr ` : ''}${mins ? `${mins} min` : ''}`;
+  return time;
+};
+
 const getMealDetails = (meal: MealWithoutDetails) => {
   const allImages = getAllImages(meal);
   return {
@@ -95,6 +103,7 @@ const getMealDetails = (meal: MealWithoutDetails) => {
     ...(allImages ? { images: allImages } : {}),
     tags: getTags(meal),
     links: getLinks(meal),
+    minutes: getTime(meal),
   };
 };
 

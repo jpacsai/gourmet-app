@@ -1,5 +1,5 @@
 import { csirkemell } from './ingredients';
-import { Speed, Difficulty, Cost, Temperature, DishPart } from './types';
+import { Difficulty, Cost, Temperature, DishPart } from './types';
 
 const jercemell_roston: DishPart = {
   name: 'jercemell',
@@ -12,7 +12,7 @@ const jercemell_roston: DishPart = {
   temp: Temperature.MELEG,
   image_link: 'https://www.mindmegette.hu/images/235/O/csirkemell-roston-2.jpg',
   prep: {
-    speed: Speed.GYORS,
+    speed: 20,
     difficulty: Difficulty.KÖNNYŰ,
     cost: Cost.KÖZEPES,
     pre_cookable: true,
@@ -30,7 +30,7 @@ const mock_dishPart: DishPart = {
   },
   temp: Temperature.MELEG,
   prep: {
-    speed: Speed.GYORS,
+    speed: 10,
     difficulty: Difficulty.KÖNNYŰ,
     cost: Cost.KÖZEPES,
     pre_cookable: true,

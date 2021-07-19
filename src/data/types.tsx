@@ -4,20 +4,12 @@ export enum Temperature {
   MELEG = 'MELEG',
 }
 
-export enum Speed {
-  GYORS = 'GYORS',
-  ORA_1 = 'ORA_1',
-  ORA_2 = 'ORA_2',
-  ORA_3 = 'ORA_3',
-  LASSU = 'LASSU',
-}
-
 export enum Difficulty {
-  NAGYON_KÖNNYŰ,
-  KÖNNYŰ,
-  KÖZEPES,
-  NEHÉZ,
-  NAGYON_NEHÉZ,
+  NAGYON_KÖNNYŰ = 'Nagyon könnyű',
+  KÖNNYŰ = 'Könnyű',
+  KÖZEPES = 'Közepes',
+  NEHÉZ = 'Nehéz',
+  NAGYON_NEHÉZ = 'Nagyon nehéz',
 }
 
 export enum Cost {
@@ -29,14 +21,15 @@ export enum Cost {
 }
 
 export enum Cousine {
-  MAGYAR,
-  OLASZ,
-  SPANYOL,
-  MEXIKOI,
-  KELETI,
-  FRANCIA,
-  ANGOL,
-  AMERIKAI,
+  MAGYAR = 'Magyar',
+  OLASZ = 'Olasz',
+  SPANYOL = 'Spanyol',
+  MEXIKOI = 'Mexikói',
+  KELETI = 'Keleti',
+  FRANCIA = 'Francia',
+  ANGOL = 'Angol',
+  AMERIKAI = 'Amerikai',
+  ZSIDÓ = 'Zsidó',
 }
 
 export type Diet = {
@@ -46,7 +39,7 @@ export type Diet = {
 };
 
 export type Preparation = {
-  speed: Speed;
+  speed: number;
   difficulty: Difficulty;
   cost: Cost;
   pre_cookable: boolean;
@@ -62,7 +55,7 @@ export type MealWithoutDetails = {
   category?: Category;
   dish_parts: DishPart[];
   prep: Preparation;
-  couisine?: Cousine[];
+  couisine?: Cousine;
   likes?: Likes[];
   wine?: string[];
 };
@@ -71,6 +64,7 @@ export interface Meal extends MealWithoutDetails {
   details: {
     ingredients: Ingredient[];
     diet: Diet;
+    minutes: string;
     images?: {
       main?: string;
       parts?: string[];
@@ -154,6 +148,7 @@ export enum Time {
   EBÉD_VACSORA = 'EBÉD_VACSORA',
   BRUNCH_UZSONNA = 'BRUNCH_UZSONNA',
   STREET = 'STREET',
+  SNACK = 'SNACK',
 }
 
 /* --- CATEGORIES --- */
