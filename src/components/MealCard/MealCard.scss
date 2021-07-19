@@ -11,6 +11,19 @@
     background-position: center;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+    position: relative;
+  }
+
+  &__quick_view {
+    position: absolute;
+    right: 0;
+    background-color: rgba($color: #fff, $alpha: 0.6);
+    padding: 8px 15px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    color: #616e7b;
+    border-bottom: 1px rgba($color: #888, $alpha: 0.4) solid;
+    border-left: 1px rgba($color: #888, $alpha: 0.4) solid;
   }
 
   &__content {
