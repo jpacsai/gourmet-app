@@ -26,6 +26,16 @@
     border-left: 1px rgba($color: #888, $alpha: 0.4) solid;
   }
 
+  &__quick_view:hover {
+    color: black;
+    background-color: white;
+    box-shadow: 1px 5px 6px -2px #0000007d;
+    transform: translate(1px, -1px);
+    -webkit-transform: translate(1px, -1px);
+    -o-transform: translate(1px, -1px);
+    -moz-transform: translate(1px, -1px);
+  }
+
   &__content {
     padding: 20px 16px;
     flex: 1 1;
