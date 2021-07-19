@@ -15,6 +15,7 @@ import {
 import { jercemell_roston, mock_dishPart } from './dishParts';
 
 const jerce_lecsos_burg: MealWithoutDetails = {
+  id: 1,
   name: 'Jércemell, lecsós burgonya',
   time: [Time.EBÉD_VACSORA],
   category: {
@@ -35,6 +36,7 @@ const jerce_lecsos_burg: MealWithoutDetails = {
 };
 
 const kacsamaj_jerce_sutotok: MealWithoutDetails = {
+  id: 2,
   name: 'Kacsamájjal töltött jércemell, sütőtökös rizottó, spenót',
   time: [Time.EBÉD_VACSORA],
   category: {
@@ -57,6 +59,7 @@ const kacsamaj_jerce_sutotok: MealWithoutDetails = {
 };
 
 const bbq_marha_gersli_rizotto: MealWithoutDetails = {
+  id: 3,
   name: 'BBQ marhaoldalas, zöldséges gersli rizottó',
   time: [Time.EBÉD_VACSORA],
   category: {
@@ -79,6 +82,7 @@ const bbq_marha_gersli_rizotto: MealWithoutDetails = {
 };
 
 const rantotthus_burg_pure: MealWithoutDetails = {
+  id: 4,
   name: 'Rántott hús, petrezselymes burgonyapüré, tejfölös uborkasaláta',
   time: [Time.EBÉD_VACSORA],
   category: {
@@ -99,6 +103,7 @@ const rantotthus_burg_pure: MealWithoutDetails = {
 };
 
 const sutotok_leves_kacsa: MealWithoutDetails = {
+  id: 5,
   name: 'Sütőtök krémleves, füstölt libamell, zsendice gombóc',
   time: [Time.EBÉD_VACSORA],
   category: {
@@ -117,6 +122,7 @@ const sutotok_leves_kacsa: MealWithoutDetails = {
 };
 
 const medvehagyma_spenot_fozelek: MealWithoutDetails = {
+  id: 6,
   name: 'Medvehagymás parajfőzelék, borjú ropogós, lágytojás, parázsburgonya',
   time: [Time.EBÉD_VACSORA],
   category: {
@@ -138,6 +144,7 @@ const medvehagyma_spenot_fozelek: MealWithoutDetails = {
 };
 
 const carpaccio_burg_kel: MealWithoutDetails = {
+  id: 7,
   name: 'Carpaccio, parázsburgonya, kel, sült paprika, füstölt halas majonéz, jus, olíva, lime',
   time: [Time.EBÉD_VACSORA],
   category: {
@@ -160,6 +167,7 @@ const carpaccio_burg_kel: MealWithoutDetails = {
 };
 
 const mandulas_flodni: MealWithoutDetails = {
+  id: 8,
   name: 'Mandulás flódni, forralt bor sorbet, édes morzsa',
   time: [Time.EBÉD_VACSORA],
   category: {
@@ -182,6 +190,7 @@ const mandulas_flodni: MealWithoutDetails = {
 };
 
 const tojasos_nokedli: MealWithoutDetails = {
+  id: 9,
   name: 'Tojásos nokedli, saláta',
   time: [Time.EBÉD_VACSORA],
   category: {

@@ -54,6 +54,7 @@ export type Preparation = {
 };
 
 export type MealWithoutDetails = {
+  id: number;
   name: string;
   image?: string;
   link?: string;
