@@ -92,6 +92,7 @@ const getTags = (meal: MealWithoutDetails): Tag[] => {
       else if (category.sub_category.name === DessertSubCat.SÜTEMÉNY) tags.push(Tag.SÜTEMÉNY);
       else tags.push(Tag.TORTA);
     } else if (category.name === CategoryName.MAIN) {
+      tags.push(Tag.FŐÉTEL);
       const { sub_category } = category;
       if (sub_category.name === MainSubCat.FŐZELÉK) tags.push(Tag.FŐZELÉK);
       else {

@@ -82,7 +82,9 @@ export interface Meal extends MealWithoutDetails {
 export enum Tag {
   REGGELI = 'REGGELI',
   STREET = 'STREET',
+  KÖNNYŰ = 'KÖNNYŰ',
   LEVES = 'LEVES',
+  FŐÉTEL = 'FŐÉTEL',
   FŐZELÉK = 'FŐZELÉK',
   EGYTÁL = 'EGYTÁL',
   HÚS = 'HÚS',
@@ -95,8 +97,14 @@ export enum Tag {
   DESSZERT = 'DESSZERT',
   TORTA = 'TORTA',
   SÜTEMÉNY = 'SÜTEMÉNY',
-  KÖNNYŰ = 'KÖNNYŰ',
 }
+
+export type TagColor = {
+  name: string;
+  color: string;
+  text: string;
+  usage: Tag;
+};
 
 export type Likes = {
   name: string;
