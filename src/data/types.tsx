@@ -13,11 +13,11 @@ export enum Difficulty {
 }
 
 export enum Cost {
-  NAGYON_OLCSÓ,
-  OLCSÓ,
-  KÖZEPES,
-  DRÁGA,
-  NAGYON_DRÁGA,
+  NAGYON_OLCSÓ = 'Nagyon olcsó',
+  OLCSÓ = 'Olcsó',
+  KÖZEPES = 'Közepes',
+  DRÁGA = 'Drága',
+  NAGYON_DRÁGA = 'Nagyon drága',
 }
 
 export enum Cousine {

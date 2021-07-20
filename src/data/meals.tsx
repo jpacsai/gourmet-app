@@ -29,7 +29,7 @@ const jerce_lecsos_burg: MealWithoutDetails = {
   prep: {
     speed: 60,
     difficulty: Difficulty.KÖZEPES,
-    cost: Cost.KÖZEPES,
+    cost: Cost.OLCSÓ,
     pre_cookable: false,
     freezable: false,
   },
@@ -96,7 +96,7 @@ const rantotthus_burg_pure: MealWithoutDetails = {
   prep: {
     speed: 80,
     difficulty: Difficulty.KÖZEPES,
-    cost: Cost.KÖZEPES,
+    cost: Cost.OLCSÓ,
     pre_cookable: false,
     freezable: false,
   },
@@ -137,7 +137,7 @@ const medvehagyma_spenot_fozelek: MealWithoutDetails = {
   prep: {
     speed: 90,
     difficulty: Difficulty.KÖZEPES,
-    cost: Cost.KÖZEPES,
+    cost: Cost.OLCSÓ,
     pre_cookable: false,
     freezable: false,
   },
@@ -161,7 +161,7 @@ const carpaccio_burg_kel: MealWithoutDetails = {
   prep: {
     speed: 40,
     difficulty: Difficulty.KÖZEPES,
-    cost: Cost.KÖZEPES,
+    cost: Cost.DRÁGA,
     pre_cookable: false,
     freezable: false,
   },
@@ -208,7 +208,7 @@ const tojasos_nokedli: MealWithoutDetails = {
   prep: {
     speed: 40,
     difficulty: Difficulty.KÖZEPES,
-    cost: Cost.KÖZEPES,
+    cost: Cost.NAGYON_OLCSÓ,
     pre_cookable: false,
     freezable: false,
   },
