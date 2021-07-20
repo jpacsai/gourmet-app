@@ -1,10 +1,13 @@
+import React, { useMemo } from 'react';
+
 import { Card, Elevation } from '@blueprintjs/core';
 
 import CategoryTags from '../CategoryTags/CategoryTags';
+import CornerIcon from '../CornerIcon/CornerIcon';
+
 import './MealCard.scss';
 
-import { Icon } from '@blueprintjs/core';
-
+import { displayImage } from '../../helpers/image';
 import { Meal } from '../../data/types';
 
 type Props = {
@@ -13,24 +16,12 @@ type Props = {
 };
 
 const Page: React.FC<Props> = ({ meal, onQuickView }) => {
-  const image = meal.details.images
-    ? meal.details.images.main || (meal.details.images.parts ? meal.details.images.parts[0] : '')
-    : '';
-  const mock_image = 'https://freeiconshop.com/wp-content/uploads/edd/food-flat.png';
-
-  const handleQuickViewClick = (e: any) => {
-    // TODO stop click through
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    onQuickView(meal.id);
-  };
+  const image = useMemo(() => displayImage(meal.details.images), [meal.details.images]);
 
   return (
     <Card className="meal-card" interactive={true} elevation={Elevation.TWO}>
-      <div className="meal-card__image-container" style={{ backgroundImage: `url(${image || mock_image})` }}>
-        <div className="meal-card__quick_view" onClick={handleQuickViewClick}>
-          <Icon icon="eye-open" iconSize={20} />
-        </div>
+      <div className="meal-card__image-container" style={{ backgroundImage: `url(${image})` }}>
+        <CornerIcon icon="eye-open" onClick={() => onQuickView(meal.id)} />
       </div>
       <div className="meal-card__content">
         <div className="meal-card__details">

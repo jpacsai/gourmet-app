@@ -1,0 +1,21 @@
+.corner-icon {
+  position: absolute;
+  right: 0;
+  padding: 8px 15px;
+  background-color: rgba($color: #fff, $alpha: 0.6);
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom: 1px rgba($color: #888, $alpha: 0.4) solid;
+  border-left: 1px rgba($color: #888, $alpha: 0.4) solid;
+  color: #616e7b;
+}
+
+.corner-icon:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 1px 5px 6px -2px #0000007d;
+  transform: translate(1px, -1px);
+  -webkit-transform: translate(1px, -1px);
+  -o-transform: translate(1px, -1px);
+  -moz-transform: translate(1px, -1px);
+}
