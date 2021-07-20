@@ -20,8 +20,27 @@ const QuickViewDetailIcon: React.FC<QuickViewDetailIconProps> = ({ content = 'N/
   return (
     <div className="quick-view__detail">
       <Icon icon={icon} className="quick-view__detail-icon" />
-      <span>{content}</span>
+      <span className="quick-view__detail-text">{content}</span>
     </div>
+  );
+};
+
+// ---------- Blank QuickView ---------- //
+
+type QBlankQuickViewProps = {
+  onClose: () => void;
+};
+
+const BlankQuickView: React.FC<QBlankQuickViewProps> = ({ onClose }) => {
+  return (
+    <>
+      <div className="quick-view__card_header">
+        <CornerIcon icon="cross" onClick={onClose} />
+      </div>
+      <div className="quick-view__card_content">
+        <h4 className="quick-view__card_title">Sorry, couldn't find meal...</h4>
+      </div>
+    </>
   );
 };
 
@@ -40,36 +59,42 @@ const QuickView: React.FC<QuickViewProps> = ({ meal, isOpen, onClose }) => {
   return (
     <Overlay isOpen={isOpen} onClose={() => onClose(meal?.id || null)} className="quick-view">
       <Card className="quick-view__card" elevation={Elevation.TWO}>
-        <div
-          className="quick-view__card_header"
-          style={{
-            backgroundImage: `linear-gradient(transparent, white 98%), url(${image})`,
-          }}
-        >
-          <CornerIcon icon="cross" onClick={() => onClose(meal?.id || null)} />
-        </div>
-        <div className="quick-view__card_content">
-          <h4 className="quick-view__card_title">{meal?.name}</h4>
-          <hr />
-          <div className="quick-view__details-container">
-            <div className="quick-view__details">
-              <QuickViewDetailIcon icon="time" content={meal?.details.minutes} />
-              <QuickViewDetailIcon icon="learning" content={meal?.prep.difficulty} />
-              <QuickViewDetailIcon icon="dollar" content={meal?.prep.cost} />
+        {!meal ? (
+          <BlankQuickView onClose={() => onClose(null)} />
+        ) : (
+          <>
+            <div
+              className="quick-view__card_header"
+              style={{
+                backgroundImage: `linear-gradient(transparent, white 98%), url(${image})`,
+              }}
+            >
+              <CornerIcon icon="cross" onClick={() => onClose(meal.id)} />
             </div>
-            <hr />
-            {/* 
+            <div className="quick-view__card_content">
+              <h4 className="quick-view__card_title">{meal.name}</h4>
+              <hr />
+              <div className="quick-view__details-container">
+                <div className="quick-view__details">
+                  <QuickViewDetailIcon icon="time" content={meal.details.minutes} />
+                  <QuickViewDetailIcon icon="learning" content={meal.prep.difficulty} />
+                  <QuickViewDetailIcon icon="dollar" content={meal.prep.cost} />
+                </div>
+                <hr />
+                {/* 
             - cost
             - hot/cold
             - pre-cook
             - freezable
             */}
 
-            {/* 
+                {/* 
             Ingredients
             */}
-          </div>
-        </div>
+              </div>
+            </div>
+          </>
+        )}
       </Card>
     </Overlay>
   );

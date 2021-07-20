@@ -48,13 +48,19 @@
     justify-content: center;
     align-items: center;
 
-    span {
+    span:first-of-type {
       margin: 7px;
-      text-align: center;
-      font-size: 11px;
     }
   }
 
+  &__detail-text {
+    margin: 4px;
+    text-align: center;
+    font-size: 13px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+  }
   &__detail-icon {
     color: #bc5173;
   }

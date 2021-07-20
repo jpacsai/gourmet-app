@@ -207,7 +207,7 @@ const tojasos_nokedli: MealWithoutDetails = {
   image: 'https://res.cloudinary.com/jutzee/image/upload/v1626694154/gourmet-app/tojasos_nokedli.jpg',
   prep: {
     speed: 40,
-    difficulty: Difficulty.KÖZEPES,
+    difficulty: Difficulty.NAGYON_KÖNNYŰ,
     cost: Cost.NAGYON_OLCSÓ,
     pre_cookable: false,
     freezable: false,
