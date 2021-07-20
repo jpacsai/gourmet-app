@@ -66,7 +66,7 @@ const QuickView: React.FC<QuickViewProps> = ({ meal, isOpen, onClose }) => {
             <div
               className="quick-view__card_header"
               style={{
-                backgroundImage: `linear-gradient(transparent, white 98%), url(${image})`,
+                backgroundImage: `linear-gradient(transparent 0%, #ffffff7d 65%, white 95%), url(${image})`,
               }}
             >
               <CornerIcon icon="cross" onClick={() => onClose(meal.id)} />
@@ -82,12 +82,19 @@ const QuickView: React.FC<QuickViewProps> = ({ meal, isOpen, onClose }) => {
                 </div>
                 <hr />
                 {/* 
-            - cost
             - hot/cold
             - pre-cook
             - freezable
             */}
-
+                <div className="quick-view__details">
+                  <QuickViewDetailIcon
+                    icon={meal.temperature === 0 ? 'snowflake' : meal.temperature === 1 ? 'home' : 'flame'}
+                    content="Hömérséklet"
+                  />
+                  <QuickViewDetailIcon icon={meal.prep.pre_cookable ? 'tick' : 'cross'} content="Előfőzhető" />
+                  <QuickViewDetailIcon icon={meal.prep.freezable ? 'tick' : 'cross'} content="Fagyasztható" />
+                </div>
+                <hr />
                 {/* 
             Ingredients
             */}

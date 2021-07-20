@@ -1,7 +1,7 @@
 export enum Temperature {
-  HIDEG = 'HIDEG',
-  SZOBA = 'SZOBA',
-  MELEG = 'MELEG',
+  HIDEG,
+  SZOBA,
+  MELEG,
 }
 
 export enum Difficulty {
@@ -49,6 +49,7 @@ export type Preparation = {
 export type MealWithoutDetails = {
   id: number;
   name: string;
+  temperature: Temperature;
   image?: string;
   link?: string;
   time: Time[];
