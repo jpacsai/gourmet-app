@@ -81,11 +81,6 @@ const QuickView: React.FC<QuickViewProps> = ({ meal, isOpen, onClose }) => {
                   <QuickViewDetailIcon icon="dollar" content={meal.prep.cost} />
                 </div>
                 <hr />
-                {/* 
-            - hot/cold
-            - pre-cook
-            - freezable
-            */}
                 <div className="quick-view__details">
                   <QuickViewDetailIcon
                     icon={meal.temperature === 0 ? 'snowflake' : meal.temperature === 1 ? 'home' : 'flame'}
@@ -95,9 +90,14 @@ const QuickView: React.FC<QuickViewProps> = ({ meal, isOpen, onClose }) => {
                   <QuickViewDetailIcon icon={meal.prep.freezable ? 'tick' : 'cross'} content="Fagyasztható" />
                 </div>
                 <hr />
-                {/* 
-            Ingredients
-            */}
+                <div className="quick-view__ingredients">
+                  <h5 className="quick-view__ingredients-title">Hozzávalók:</h5>
+                  <ul className="quick-view__ingredients-list">
+                    {meal.details.ingredients.map((ingredient) => (
+                      <li>{ingredient.name}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </>
