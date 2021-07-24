@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
+import FilterCard from '../../components/common/Filters/FilterBar/FilterBar';
+import FilterPopup from '../../components/common/Filters/FilterPopup/FilterPopup';
 import MealCard from '../../components/meals/MealCard/MealCard';
-import FilterCard from '../../components/common/FilterCard/FilterCard';
-import MealFilters from '../../components/meals/MealFilters/MealFilters';
 import Page from '../../components/common/Page/Page';
 import QuickView from '../../components/meals/MealQuickView/MealQuickView';
 
@@ -28,7 +28,7 @@ const Meals: React.FC = () => {
         ))}
       </div>
       <QuickView isOpen={!!isMealCardOpen} onClose={handleIsOpen} meal={getMeal()} />
-      <MealFilters isOpen={isFiltersOpen} onClose={() => setIsFiltersOpen(false)} />
+      <FilterPopup isOpen={isFiltersOpen} onClose={() => setIsFiltersOpen(false)} />
     </Page>
   );
 };
