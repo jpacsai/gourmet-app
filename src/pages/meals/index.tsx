@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import MealCard from '../../components/MealCard/MealCard';
-import Page from '../../components/Page/Page';
+import Page from '../../components/common/Page/Page';
 import QuickView from '../../components/QuickView/QuickView';
 
-import { mock_data } from '../../data/mock_data';
+import { mock_data } from '../../helpers/meals_mock';
 import { Meal } from '../../data/types';
 
 const Meals: React.FC = () => {
@@ -19,7 +19,7 @@ const Meals: React.FC = () => {
   return (
     <Page title="Fogások">
       <div>
-        {mock_data.map((meal, index) => (
+        {mock_data.map((meal) => (
           <MealCard key={meal.id} meal={meal} onQuickView={handleIsOpen} />
         ))}
       </div>

@@ -10,7 +10,7 @@ import {
   DessertSubCat,
   MainSubCat,
   MeatCategory,
-} from './types';
+} from '../data/types';
 
 import {
   sutotok_leves_kacsa,
@@ -22,7 +22,7 @@ import {
   jerce_lecsos_burg,
   rantotthus_burg_pure,
   bbq_marha_gersli_rizotto,
-} from './meals';
+} from '../data/meals';
 
 const meals = [
   bbq_marha_gersli_rizotto,

@@ -121,6 +121,7 @@ export type DishPart = {
 };
 
 export type Ingredient = {
+  id: number;
   name: string;
   ingredient_type: IngredientType;
   diet: Diet;

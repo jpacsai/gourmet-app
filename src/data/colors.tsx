@@ -1,4 +1,4 @@
-import { Tag, TagColor } from '../data/types';
+import { Tag } from '../data/types';
 
 export const colors = [
   { name: 'raspberry', color: '#bc5173', text: 'white' },
@@ -22,7 +22,7 @@ export const colors = [
 
 export const defaultColor = { name: 'default', color: 'lightsteelblue', text: 'black' };
 
-const colorUsage = [
+export const colorUsage = [
   { name: 'raspberry', usage: Tag.DESSZERT },
   { name: 'raspberry_light', usage: Tag.TORTA },
   { name: 'purple', usage: Tag.SÜTEMÉNY },
@@ -41,10 +41,3 @@ const colorUsage = [
   { name: 'blue', usage: Tag.HAL },
   { name: 'mint', usage: Tag.VEGA },
 ];
-
-export const tagColors = colorUsage.map((tagColor): TagColor => {
-  const color = colors.find(({ name }) => name === tagColor.name);
-  return { ...(color || defaultColor), ...tagColor };
-});
-
-export const getTagColor = (tag: Tag) => tagColors.find(({ usage }) => usage === tag) || defaultColor;

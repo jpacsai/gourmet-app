@@ -3,7 +3,7 @@ import { v4 } from 'uuid';
 
 import './CategoryTags.scss';
 
-import { getTagColor } from '../../data/colors';
+import { getTagColor } from '../../helpers/colors';
 import { Meal, Tag as TagType } from '../../data/types';
 
 // ---------- Tag ---------- //

@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { Card, Elevation } from '@blueprintjs/core';
 
 import CategoryTags from '../CategoryTags/CategoryTags';
-import CornerIcon from '../CornerIcon/CornerIcon';
+import CornerIcon from '../common/CornerIcon/CornerIcon';
 
 import './MealCard.scss';
 

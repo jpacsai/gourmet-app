@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import Page from './components/Page/Page';
+import Page from './components/common/Page/Page';
 import Home from './pages/colors';
 import Meals from './pages/meals';
 import Menus from './pages/menus';

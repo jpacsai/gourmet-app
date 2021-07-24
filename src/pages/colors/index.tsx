@@ -2,7 +2,7 @@ import { Card, Elevation } from '@blueprintjs/core';
 
 import './Colors.scss';
 
-import { tagColors } from '../../data/colors';
+import { tagColors } from '../../helpers/colors';
 
 const Home: React.FC = () => {
   return (
