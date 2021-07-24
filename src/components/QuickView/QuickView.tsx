@@ -69,7 +69,7 @@ const QuickView: React.FC<QuickViewProps> = ({ meal, isOpen, onClose }) => {
                 backgroundImage: `linear-gradient(transparent 0%, #ffffff7d 65%, white 95%), url(${image})`,
               }}
             >
-              <CornerIcon icon="cross" onClick={() => onClose(meal.id)} />
+              <CornerIcon className="quick-view__close-icon" icon="cross" onClick={() => onClose(meal.id)} />
             </div>
             <div className="quick-view__card_content">
               <h4 className="quick-view__card_title">{meal.name}</h4>

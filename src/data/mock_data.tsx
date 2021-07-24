@@ -25,15 +25,15 @@ import {
 } from './meals';
 
 const meals = [
-  sutotok_leves_kacsa,
+  bbq_marha_gersli_rizotto,
+  mandulas_flodni,
   tojasos_nokedli,
   carpaccio_burg_kel,
-  mandulas_flodni,
   medvehagyma_spenot_fozelek,
+  sutotok_leves_kacsa,
   kacsamaj_jerce_sutotok,
   jerce_lecsos_burg,
   rantotthus_burg_pure,
-  bbq_marha_gersli_rizotto,
 ];
 
 export const getAllIngredients = (dish_parts: DishPart[]): Ingredient[] => {
