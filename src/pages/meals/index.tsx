@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 
-import { Card, Elevation, Icon } from '@blueprintjs/core';
-
 import MealCard from '../../components/MealCard/MealCard';
+import FilterCard from '../../components/FilterCard/FilterCard';
 import MealFilters from '../../components/MealFilters/MealFilters';
 import Page from '../../components/common/Page/Page';
 import QuickView from '../../components/QuickView/QuickView';
-
-import './mealsPage.scss';
 
 import { mock_data } from '../../helpers/meals_mock';
 import { Meal } from '../../data/types';
@@ -24,19 +21,7 @@ const Meals: React.FC = () => {
 
   return (
     <Page title="Fogások" className="meals-page">
-      <Card
-        className="meals-page__filters-card"
-        interactive={true}
-        elevation={Elevation.THREE}
-        onClick={() => setIsFiltersOpen(true)}
-      >
-        <div className="meals-page__filters-container">
-          <Icon icon="filter" iconSize={16} />
-          <span className="meals-page__filters-text">
-            Filters <span className="meals-page__filters-counter">(0)</span>
-          </span>
-        </div>
-      </Card>
+      <FilterCard onClick={() => setIsFiltersOpen(true)} filterCounter={0} onClear={() => console.log('clear')} />
       <div>
         {mock_data.map((meal) => (
           <MealCard key={meal.id} meal={meal} onQuickView={handleIsOpen} />

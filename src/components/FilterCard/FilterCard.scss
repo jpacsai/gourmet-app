@@ -1,0 +1,27 @@
+.filter-card {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__counter,
+  &__clear {
+    margin: 8px;
+  }
+
+  &__counter-text {
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__counter-value {
+    font-weight: normal;
+  }
+
+  &__clear-text {
+    margin-right: 5px;
+  }
+}
