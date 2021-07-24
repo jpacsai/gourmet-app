@@ -2,12 +2,12 @@ import React, { useMemo } from 'react';
 
 import { Icon, IconName, MaybeElement } from '@blueprintjs/core';
 
-import Popup from '../common/Popup/Popup';
+import Popup from '../../common/Popup/Popup';
 
-import './QuickView.scss';
+import './MealQuickView.scss';
 
-import { displayImage } from '../../helpers/image';
-import { Meal } from '../../data/types';
+import { displayImage } from '../../../helpers/image';
+import { Meal } from '../../../data/types';
 
 // ---------- Blank QuickView ---------- //
 

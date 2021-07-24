@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import MealCard from '../../components/MealCard/MealCard';
-import FilterCard from '../../components/FilterCard/FilterCard';
-import MealFilters from '../../components/MealFilters/MealFilters';
+import MealCard from '../../components/meals/MealCard/MealCard';
+import FilterCard from '../../components/common/FilterCard/FilterCard';
+import MealFilters from '../../components/meals/MealFilters/MealFilters';
 import Page from '../../components/common/Page/Page';
-import QuickView from '../../components/QuickView/QuickView';
+import QuickView from '../../components/meals/MealQuickView/MealQuickView';
 
 import { mock_data } from '../../helpers/meals_mock';
 import { Meal } from '../../data/types';

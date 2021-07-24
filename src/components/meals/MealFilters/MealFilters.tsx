@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import Popup from '../common/Popup/Popup';
+import Popup from '../../common/Popup/Popup';
 
 import './MealFilters.scss';
 
