@@ -15,9 +15,8 @@ type Props = {
   onQuickView: (id: Meal['id']) => void;
 };
 
-const Page: React.FC<Props> = ({ meal, onQuickView }) => {
+const MealCard: React.FC<Props> = ({ meal, onQuickView }) => {
   const image = useMemo(() => displayImage(meal.details.images), [meal.details.images]);
-
   return (
     <Card className="meal-card" interactive={true} elevation={Elevation.TWO}>
       <div className="meal-card__image-container" style={{ backgroundImage: `url(${image})` }}>
@@ -33,4 +32,4 @@ const Page: React.FC<Props> = ({ meal, onQuickView }) => {
   );
 };
 
-export default Page;
+export default MealCard;

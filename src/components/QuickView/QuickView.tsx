@@ -54,8 +54,6 @@ type QuickViewProps = {
 
 const QuickView: React.FC<QuickViewProps> = ({ meal, isOpen, onClose }) => {
   const image = useMemo(() => (meal ? displayImage(meal.details.images) : null), [meal]);
-
-  // add blank quick view card
   return (
     <Overlay isOpen={isOpen} onClose={() => onClose(meal?.id || null)} className="quick-view">
       <Card className="quick-view__card" elevation={Elevation.TWO}>
