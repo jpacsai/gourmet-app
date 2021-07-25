@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
+import Clear from '../../Clear/Clear';
 import Popup from '../../Popup/Popup';
 
 import './FilterPopup.scss';
@@ -20,6 +21,12 @@ const FilterPopup: React.FC<Props> = ({ isOpen, onClose, className, children }) 
       header={
         <div className="filter-popup__header">
           <h2 className="filter-popup__title">Filters</h2>
+          <Clear
+            onClick={() => console.log('clear from popup')}
+            fontSize={18}
+            icon={false}
+            className="filter-popup__clear"
+          />
         </div>
       }
     >

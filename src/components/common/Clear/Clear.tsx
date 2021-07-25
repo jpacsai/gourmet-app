@@ -9,9 +9,10 @@ type Props = {
   onClick: () => void;
   fontSize?: number;
   className?: string;
+  icon?: boolean;
 };
 
-const Clear: React.FC<Props> = ({ onClick, fontSize = 14, className }) => {
+const Clear: React.FC<Props> = ({ onClick, fontSize = 14, icon = true, className }) => {
   const handleClear = (evt: MouseEvent) => {
     evt.stopPropagation();
     onClick();
@@ -22,7 +23,7 @@ const Clear: React.FC<Props> = ({ onClick, fontSize = 14, className }) => {
       <span className="clear__text" style={{ fontSize: fontSize }}>
         Clear
       </span>
-      <Icon icon="cross" iconSize={fontSize + 2} />
+      {icon && <Icon icon="cross" iconSize={fontSize + 2} />}
     </div>
   );
 };
