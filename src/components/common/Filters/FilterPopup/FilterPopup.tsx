@@ -9,10 +9,11 @@ import './FilterPopup.scss';
 type Props = {
   isOpen: boolean;
   onClose: () => void;
+  onClearAll: () => void;
   className?: string;
 };
 
-const FilterPopup: React.FC<Props> = ({ isOpen, onClose, className, children }) => {
+const FilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll, className, children }) => {
   return (
     <Popup
       isOpen={isOpen}
@@ -21,16 +22,11 @@ const FilterPopup: React.FC<Props> = ({ isOpen, onClose, className, children }) 
       header={
         <div className="filter-popup__header">
           <h2 className="filter-popup__title">Filters</h2>
-          <Clear
-            onClick={() => console.log('clear from popup')}
-            fontSize={18}
-            icon={false}
-            className="filter-popup__clear"
-          />
+          <Clear onClick={onClearAll} fontSize={18} icon={false} className="filter-popup__clear" />
         </div>
       }
     >
-      {children}
+      <div className="filter-popup__content">{children}</div>
     </Popup>
   );
 };
