@@ -5,12 +5,13 @@
   }
 
   &__header {
-    &.header-content {
+    &.content {
       height: 41px;
-      display: flex;
-      align-items: center;
-      padding-left: 15px;
     }
+  }
+
+  &__header-content {
+    height: 100%;
   }
 
   &__card {
@@ -38,6 +39,7 @@
   &__card_content {
     height: 100%;
     overflow: auto;
+    border-radius: 8px;
   }
 
   &__close-icon {

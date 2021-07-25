@@ -8,17 +8,18 @@ import './CornerIcon.scss';
 type Props = {
   icon: IconName;
   onClick: () => void;
+  position?: 'left' | 'right';
   className?: string;
 };
 
-const CornerIcon: React.FC<Props> = ({ icon, onClick, className }) => {
+const CornerIcon: React.FC<Props> = ({ icon, onClick, position = 'right', className }) => {
   const handleClick = (e: MouseEvent) => {
     // TODO stop click through
     onClick();
   };
 
   return (
-    <div className={classnames('corner-icon', className)} onClick={handleClick}>
+    <div className={classnames('corner-icon', position, className)} onClick={handleClick}>
       <Icon icon={icon} iconSize={20} />
     </div>
   );

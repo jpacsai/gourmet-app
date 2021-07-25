@@ -17,7 +17,11 @@ const FilterPopup: React.FC<Props> = ({ isOpen, onClose, className, children }) 
       isOpen={isOpen}
       onClose={onClose}
       className={classnames('filter-popup', className)}
-      header={<h2 className="filter-popup__title">Filters</h2>}
+      header={
+        <div className="filter-popup__header">
+          <h2 className="filter-popup__title">Filters</h2>
+        </div>
+      }
     >
       {children}
     </Popup>

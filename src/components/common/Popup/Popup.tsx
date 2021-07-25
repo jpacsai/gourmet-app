@@ -18,9 +18,9 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, header, children, classN
   return (
     <Overlay isOpen={isOpen} onClose={onClose} className={classnames('popup', className)}>
       <Card className="popup__card" elevation={Elevation.TWO}>
-        <div className={classnames('popup__header', header && 'header-content')}>
-          {header && <div>{header}</div>}
-          <CornerIcon className="popup__close-icon" icon="cross" onClick={onClose} />
+        <div className={classnames('popup__header', header && 'content')}>
+          {header && <div className="popup__header-content">{header}</div>}
+          <CornerIcon className="popup__close-icon" icon="chevron-left" onClick={onClose} position="left" />
         </div>
         <div className="popup__card_content">{children}</div>
       </Card>
