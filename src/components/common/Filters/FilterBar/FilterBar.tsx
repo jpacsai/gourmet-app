@@ -1,8 +1,9 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 
 import { Card, Elevation, Icon } from '@blueprintjs/core';
 
 import './FilterBar.scss';
+import Clear from '../../Clear/Clear';
 
 type Props = {
   filterCounter: number;
@@ -11,11 +12,6 @@ type Props = {
 };
 
 const FilterBar: React.FC<Props> = ({ filterCounter, onClick, onClear }) => {
-  const handleClear = (evt: MouseEvent) => {
-    evt.stopPropagation();
-    onClear();
-  };
-
   return (
     <Card className="filter-bar" interactive={true} elevation={Elevation.THREE} onClick={onClick}>
       <div className="filter-bar__counter">
@@ -24,10 +20,7 @@ const FilterBar: React.FC<Props> = ({ filterCounter, onClick, onClear }) => {
           Filters <span className="filter-bar__counter-value">({filterCounter})</span>
         </span>
       </div>
-      <div className="filter-bar__clear" onClick={handleClear}>
-        <span className="filter-bar__clear-text">Clear</span>
-        <Icon icon="cross" iconSize={16} />
-      </div>
+      <Clear onClick={onClear} fontSize={14} className="filter-bar__clear" />
     </Card>
   );
 };
