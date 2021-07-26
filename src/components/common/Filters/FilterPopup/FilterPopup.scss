@@ -13,12 +13,13 @@
 
   &__clear {
     place-self: center end;
-    padding-right: 8px;
+    padding-right: 20px;
     font-weight: bold;
     color: #bc5173;
   }
 
   &__content {
     height: 100%;
+    padding: 20px;
   }
 }

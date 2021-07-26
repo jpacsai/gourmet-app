@@ -4,4 +4,17 @@
     border-radius: 8px;
     box-shadow: none !important;
   }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__header-title {
+    margin: 0;
+  }
+
+  &__clear {
+    color: #bc5173;
+  }
 }

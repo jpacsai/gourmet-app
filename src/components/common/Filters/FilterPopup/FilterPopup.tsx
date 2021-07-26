@@ -22,7 +22,7 @@ const FilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll, className, 
       header={
         <div className="filter-popup__header">
           <h2 className="filter-popup__title">Filters</h2>
-          <Clear onClick={onClearAll} fontSize={18} icon={false} className="filter-popup__clear" />
+          <Clear onClick={onClearAll} fontSize={18} displayIcon={false} className="filter-popup__clear" />
         </div>
       }
     >
