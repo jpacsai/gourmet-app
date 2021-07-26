@@ -3,6 +3,12 @@
   align-items: center;
 
   &__text {
-    margin-right: 5px;
+    &.marginRight {
+      margin-right: 5px;
+    }
+
+    &.bold {
+      font-weight: bold;
+    }
   }
 }

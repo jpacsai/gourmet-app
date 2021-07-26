@@ -9,10 +9,11 @@ type Props = {
   onClick: () => void;
   fontSize?: number;
   className?: string;
-  icon?: boolean;
+  displayIcon?: boolean;
+  bold?: boolean;
 };
 
-const Clear: React.FC<Props> = ({ onClick, fontSize = 14, icon = true, className }) => {
+const Clear: React.FC<Props> = ({ onClick, fontSize = 14, displayIcon = true, bold, className }) => {
   const handleClear = (evt: MouseEvent) => {
     evt.stopPropagation();
     onClick();
@@ -20,10 +21,13 @@ const Clear: React.FC<Props> = ({ onClick, fontSize = 14, icon = true, className
 
   return (
     <div onClick={handleClear} className={classnames('clear', className)}>
-      <span className="clear__text" style={{ fontSize: fontSize }}>
+      <span
+        className={classnames('clear__text', displayIcon && 'marginRight', bold && 'bold')}
+        style={{ fontSize: fontSize }}
+      >
         Clear
       </span>
-      {icon && <Icon icon="cross" iconSize={fontSize + 2} />}
+      {displayIcon && <Icon icon="cross" iconSize={fontSize + 2} />}
     </div>
   );
 };
