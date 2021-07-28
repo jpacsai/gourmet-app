@@ -146,11 +146,11 @@ export enum IngredientType {
 }
 
 export enum Time {
-  REGGELI = 'REGGELI',
-  EBÉD_VACSORA = 'EBÉD_VACSORA',
-  BRUNCH_UZSONNA = 'BRUNCH_UZSONNA',
-  STREET = 'STREET',
-  SNACK = 'SNACK',
+  REGGELI = 'Reggeli',
+  BRUNCH_UZSONNA = 'Tízórai / Uzsonna',
+  EBÉD_VACSORA = 'Ebéd / Vacsora',
+  STREET = 'Street',
+  SNACK = 'Snack',
 }
 
 /* --- CATEGORIES --- */
