@@ -1,0 +1,37 @@
+.select {
+  width: 100%;
+
+  .bp3-popover-target {
+    width: 100%;
+  }
+
+  &__button {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100%;
+  }
+
+  .bp3-overlay.bp3-overlay-inline {
+    display: block;
+
+    .bp3-transition-container {
+      transform: unset !important;
+      position: relative !important;
+
+      .bp3-popover {
+        width: 100%;
+      }
+    }
+  }
+
+  .bp3-button:not([class*='bp3-intent-']),
+  .bp3-button:not([class*='bp3-intent-']):active,
+  .bp3-button:not([class*='bp3-intent-']):hover {
+    background-color: white;
+    background-image: unset;
+  }
+
+  .bp3-menu-item.bp3-active.bp3-intent-primary.bp3-popover-dismiss {
+    background-color: #bc5173;
+  }
+}
