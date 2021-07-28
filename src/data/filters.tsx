@@ -1,7 +1,7 @@
 import { SelectItem } from '../components/common/Inputs/Select/Select';
-import { Time } from './types';
+import { DayTime } from './types';
 
-export const timeOptions: SelectItem[] = Object.values(Time).map((time, index) => ({
+export const timeOptions: SelectItem[] = Object.values(DayTime).map((time, index) => ({
   text: time,
   id: index,
   value: time,

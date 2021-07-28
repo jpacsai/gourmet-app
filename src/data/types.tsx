@@ -52,7 +52,7 @@ export type MealWithoutDetails = {
   temperature: Temperature;
   image?: string;
   link?: string;
-  time: Time[];
+  time: DayTime[];
   category?: Category;
   dish_parts: DishPart[];
   prep: Preparation;
@@ -145,7 +145,7 @@ export enum IngredientType {
   EGYÉB = 'EGYÉB',
 }
 
-export enum Time {
+export enum DayTime {
   REGGELI = 'Reggeli',
   BRUNCH_UZSONNA = 'Tízórai / Uzsonna',
   EBÉD_VACSORA = 'Ebéd / Vacsora',
