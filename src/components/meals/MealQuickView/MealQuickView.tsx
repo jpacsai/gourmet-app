@@ -69,7 +69,7 @@ const QuickView: React.FC<QuickViewProps> = ({ meal, isOpen, onClose }) => {
           <hr />
           <div className="quick-view__details">
             <QuickViewDetailIcon
-              icon={meal.temperature === 0 ? 'snowflake' : meal.temperature === 1 ? 'home' : 'flame'}
+              icon={meal.temperature === 'Hideg' ? 'snowflake' : meal.temperature === 'Meleg' ? 'flame' : 'home'}
               content="Hömérséklet"
             />
             <QuickViewDetailIcon icon={meal.prep.pre_cookable ? 'tick' : 'cross'} content="Előfőzhető" />

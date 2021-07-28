@@ -6,7 +6,7 @@ import Select, { SelectItem } from '../../common/Inputs/Select/Select';
 
 import './MealFilterPopup.scss';
 
-import { timeOptions } from '../../../data/filters';
+import { mealFilterOptions } from '../../../data/filters';
 
 type Props = {
   isOpen: boolean;
@@ -17,14 +17,24 @@ type Props = {
 
 const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
   const [time, setTime] = useState<SelectItem | null>(null);
+  const [temp, setTemp] = useState<SelectItem | null>(null);
+
   return (
     <FilterPopup isOpen={isOpen} onClose={onClose} onClearAll={onClearAll} className="meal-filters">
       <FilterSection title="Napszak">
         <Select
-          items={[{ text: 'Válassz napszakot...', value: null, id: '' }, ...timeOptions]}
+          items={[{ text: 'Válassz napszakot...', value: null, id: '' }, ...mealFilterOptions.dayTimeOptions]}
           selectedItem={time}
           onChange={setTime}
           blankText="Válassz napszakot..."
+        />
+      </FilterSection>
+      <FilterSection title="Hőmérséklet">
+        <Select
+          items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
+          selectedItem={temp}
+          onChange={setTemp}
+          blankText="Válassz hőmérsékletet..."
         />
       </FilterSection>
     </FilterPopup>

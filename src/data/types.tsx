@@ -1,7 +1,7 @@
 export enum Temperature {
-  HIDEG,
-  SZOBA,
-  MELEG,
+  MELEG = 'Meleg',
+  SZOBA = 'Szoba hőmérséklet',
+  HIDEG = 'Hideg',
 }
 
 export enum Difficulty {

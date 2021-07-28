@@ -1,8 +1,14 @@
 import { SelectItem } from '../components/common/Inputs/Select/Select';
-import { DayTime } from './types';
+import { DayTime, Temperature } from './types';
 
-export const timeOptions: SelectItem[] = Object.values(DayTime).map((time, index) => ({
-  text: time,
-  id: index,
-  value: time,
-}));
+export const selectOptions = (enumOptions: string[]): SelectItem[] =>
+  Object.values(enumOptions).map((options, index) => ({
+    text: options,
+    id: index,
+    value: options,
+  }));
+
+export const mealFilterOptions = {
+  dayTimeOptions: selectOptions(Object.values(DayTime)),
+  tempOptions: selectOptions(Object.values(Temperature)),
+};
