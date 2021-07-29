@@ -24,6 +24,12 @@
     }
   }
 
+  .bp3-menu {
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 0 0 1px #10161a1a, 0 2px 4px #10161a33, 0 8px 24px #10161a33;
+  }
+
   .bp3-button:not([class*='bp3-intent-']),
   .bp3-button:not([class*='bp3-intent-']):active,
   .bp3-button:not([class*='bp3-intent-']):hover {
