@@ -52,7 +52,7 @@ export type MealWithoutDetails = {
   temperature: Temperature;
   image?: string;
   link?: string;
-  time: DayTime[];
+  time: Daytime[];
   category?: Category;
   dish_parts: DishPart[];
   prep: Preparation;
@@ -145,7 +145,7 @@ export enum IngredientType {
   EGYÉB = 'EGYÉB',
 }
 
-export enum DayTime {
+export enum Daytime {
   REGGELI = 'Reggeli',
   BRUNCH_UZSONNA = 'Tízórai / Uzsonna',
   EBÉD_VACSORA = 'Ebéd / Vacsora',
@@ -167,9 +167,9 @@ export type CategoryType = {
 };
 
 export enum CategoryName {
-  SOUP = 'SOUP',
-  MAIN = 'MAIN',
-  DESSERT = 'DESSERT',
+  SOUP = 'Előétel',
+  MAIN = 'Főétel',
+  DESSERT = 'Desszert',
 }
 
 export type Dessert = {
@@ -207,29 +207,29 @@ export type Onepot = {
 };
 
 export enum MainSubCat {
-  HÚS = 'HÚS',
-  TÉSZTA = 'TÉSZTA',
-  FŐZELÉK = 'FŐZELÉK',
-  EGYTÁL = 'EGYTÁL',
+  HÚS = 'Hús',
+  TÉSZTA = 'Tészta',
+  FŐZELÉK = 'Főzelék',
+  EGYTÁL = 'Egytál',
 }
 
 export enum DessertSubCat {
-  TORTA = 'TORTA',
-  SÜTEMÉNY = 'SÜTEMÉNY',
-  DESSZERT = 'DESSZERT',
+  DESSZERT = 'Desszert',
+  SÜTEMÉNY = 'Sütemény',
+  TORTA = 'Torta',
 }
 
 export enum MeatOnlyCategory {
-  MARHA = 'MARHA',
-  SERTÉS = 'SERTÉS',
-  SZÁRNYAS = 'SZÁRNYAS',
-  HAL = 'HAL',
+  SZÁRNYAS = 'Szárnyas',
+  SERTÉS = 'Sertés',
+  MARHA = 'Marha',
+  HAL = 'Hal',
 }
 
 export enum MeatCategory {
-  MARHA = 'MARHA',
-  SERTÉS = 'SERTÉS',
-  SZÁRNYAS = 'SZÁRNYAS',
-  HAL = 'HAL',
-  VEGA = 'VEGA',
+  SZÁRNYAS = 'Szárnyas',
+  SERTÉS = 'Sertés',
+  MARHA = 'Marha',
+  HAL = 'Hal',
+  VEGA = 'Vegetáriánus',
 }

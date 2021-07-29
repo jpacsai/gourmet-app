@@ -5,7 +5,7 @@ import {
   Ingredient,
   Diet,
   Tag,
-  DayTime,
+  Daytime,
   CategoryName,
   DessertSubCat,
   MainSubCat,
@@ -110,8 +110,8 @@ const getMealDetails = (meal: MealWithoutDetails) => {
 const getTags = (meal: MealWithoutDetails): Tag[] => {
   const { time, category } = meal;
   const tags = [];
-  if (time.includes(DayTime.REGGELI)) tags.push(Tag.REGGELI);
-  if (time.includes(DayTime.BRUNCH_UZSONNA)) tags.push(Tag.KÖNNYŰ);
+  if (time.includes(Daytime.REGGELI)) tags.push(Tag.REGGELI);
+  if (time.includes(Daytime.BRUNCH_UZSONNA)) tags.push(Tag.KÖNNYŰ);
   if (category) {
     const { name } = category;
     if (name === CategoryName.SOUP) tags.push(Tag.LEVES);

@@ -1,6 +1,6 @@
 import {
   MealWithoutDetails,
-  DayTime,
+  Daytime,
   CategoryName,
   MainSubCat,
   DessertSubCat,
@@ -17,7 +17,7 @@ import { jercemell_roston, mock_dishPart } from './dishParts';
 const jerce_lecsos_burg: MealWithoutDetails = {
   id: 1,
   name: 'Jércemell, lecsós burgonya',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   category: {
     name: CategoryName.MAIN,
     sub_category: {
@@ -39,7 +39,7 @@ const jerce_lecsos_burg: MealWithoutDetails = {
 const kacsamaj_jerce_sutotok: MealWithoutDetails = {
   id: 2,
   name: 'Kacsamájjal töltött jércemell, sütőtökös rizottó, spenót',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   category: {
     name: CategoryName.MAIN,
     sub_category: {
@@ -63,7 +63,7 @@ const kacsamaj_jerce_sutotok: MealWithoutDetails = {
 const bbq_marha_gersli_rizotto: MealWithoutDetails = {
   id: 3,
   name: 'BBQ marhaoldalas, zöldséges gersli rizottó',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   category: {
     name: CategoryName.MAIN,
     sub_category: {
@@ -87,7 +87,7 @@ const bbq_marha_gersli_rizotto: MealWithoutDetails = {
 const rantotthus_burg_pure: MealWithoutDetails = {
   id: 4,
   name: 'Rántott hús, petrezselymes burgonyapüré, tejfölös uborkasaláta',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   category: {
     name: CategoryName.MAIN,
     sub_category: {
@@ -109,7 +109,7 @@ const rantotthus_burg_pure: MealWithoutDetails = {
 const sutotok_leves_kacsa: MealWithoutDetails = {
   id: 5,
   name: 'Sütőtök krémleves, füstölt libamell, zsendice gombóc',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   category: {
     name: CategoryName.SOUP,
   },
@@ -129,7 +129,7 @@ const sutotok_leves_kacsa: MealWithoutDetails = {
 const medvehagyma_spenot_fozelek: MealWithoutDetails = {
   id: 6,
   name: 'Medvehagymás parajfőzelék, borjú ropogós, lágytojás, parázsburgonya',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   category: {
     name: CategoryName.MAIN,
     sub_category: {
@@ -152,7 +152,7 @@ const medvehagyma_spenot_fozelek: MealWithoutDetails = {
 const carpaccio_burg_kel: MealWithoutDetails = {
   id: 7,
   name: 'Carpaccio, parázsburgonya, kel, sült paprika, füstölt halas majonéz, jus, olíva, lime',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   couisine: Cousine.OLASZ,
   category: {
     name: CategoryName.MAIN,
@@ -177,7 +177,7 @@ const carpaccio_burg_kel: MealWithoutDetails = {
 const mandulas_flodni: MealWithoutDetails = {
   id: 8,
   name: 'Mandulás flódni, forralt bor sorbet, édes morzsa',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   couisine: Cousine.ZSIDÓ,
   category: {
     name: CategoryName.DESSERT,
@@ -202,7 +202,7 @@ const mandulas_flodni: MealWithoutDetails = {
 const tojasos_nokedli: MealWithoutDetails = {
   id: 9,
   name: 'Tojásos nokedli, saláta',
-  time: [DayTime.EBÉD_VACSORA],
+  time: [Daytime.EBÉD_VACSORA],
   category: {
     name: CategoryName.MAIN,
     sub_category: {
