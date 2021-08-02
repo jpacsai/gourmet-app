@@ -27,7 +27,13 @@ const Select: React.FC<Props> = ({ items, selectedItem, onChange, filterable = f
     { modifiers, handleClick }: { modifiers: IItemModifiers; handleClick: MouseEventHandler }
   ) =>
     modifiers.matchesPredicate ? (
-      <MenuItem key={item.id} text={item.text} active={selectedItem?.id === item.id} onClick={handleClick} />
+      <MenuItem
+        key={item.id}
+        icon={item.value ? 'dot' : null}
+        text={item.text}
+        active={selectedItem?.id === item.id}
+        onClick={handleClick}
+      />
     ) : null;
 
   return (
