@@ -25,9 +25,44 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
   const [dessert, setDessert] = useState<SelectItem | null>(null);
   const [temp, setTemp] = useState<SelectItem | null>(null);
 
+  const handleClearAll = () => {
+    setDaytime(null);
+    setCourse(null);
+    setMainCourse(null);
+    setMeat(null);
+    setMeatOnly(null);
+    setDessert(null);
+    setTemp(null);
+    onClearAll();
+  };
+
+  const handleDaytimeClear = () => {
+    setDaytime(null);
+    setCourse(null);
+    setMainCourse(null);
+    setMeat(null);
+    setMeatOnly(null);
+    setDessert(null);
+  };
+
+  const handleCourseClear = () => {
+    setCourse(null);
+    setMainCourse(null);
+    setMeat(null);
+    setMeatOnly(null);
+    setDessert(null);
+  };
+
+  const handleMainCourseClear = () => {
+    setMainCourse(null);
+    setMeat(null);
+    setMeatOnly(null);
+    setDessert(null);
+  };
+
   return (
-    <FilterPopup isOpen={isOpen} onClose={onClose} onClearAll={onClearAll} className="meal-filters">
-      <FilterSection title="Napszak">
+    <FilterPopup isOpen={isOpen} onClose={onClose} onClearAll={handleClearAll} className="meal-filters">
+      <FilterSection title="Napszak" onClear={handleDaytimeClear}>
         <Select
           items={[{ text: 'Válassz napszakot...', value: null, id: '' }, ...mealFilterOptions.daytimeOptions]}
           selectedItem={daytime}
@@ -37,7 +72,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
       </FilterSection>
 
       {daytime?.value === Daytime.EBÉD_VACSORA && (
-        <FilterSection title="Fogás">
+        <FilterSection title="Fogás" onClear={handleCourseClear}>
           <Select
             items={[{ text: 'Válassz fogást...', value: null, id: '' }, ...mealFilterOptions.courseOptions]}
             selectedItem={course}
@@ -48,7 +83,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
       )}
 
       {course?.value === CategoryName.MAIN && (
-        <FilterSection title="Főfogás">
+        <FilterSection title="Főfogás" onClear={handleMainCourseClear}>
           <Select
             items={[{ text: 'Válassz főfogás...', value: null, id: '' }, ...mealFilterOptions.mainCourseOptions]}
             selectedItem={mainCourse}
@@ -59,7 +94,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
       )}
 
       {mainCourse?.value === MainSubCat.HÚS && (
-        <FilterSection title="Hús étel">
+        <FilterSection title="Hús étel" onClear={() => setMeatOnly(null)}>
           <Select
             items={[{ text: 'Válassz húst...', value: null, id: '' }, ...mealFilterOptions.meatOnlyOptions]}
             selectedItem={meatOnly}
@@ -70,7 +105,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
       )}
 
       {(mainCourse?.value === MainSubCat.EGYTÁL || mainCourse?.value === MainSubCat.TÉSZTA) && (
-        <FilterSection title="Hús típus">
+        <FilterSection title="Hús típus" onClear={() => setMeat(null)}>
           <Select
             items={[{ text: 'Válassz hús típust...', value: null, id: '' }, ...mealFilterOptions.meatOptions]}
             selectedItem={meat}
@@ -81,7 +116,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
       )}
 
       {course?.value === CategoryName.DESSERT && (
-        <FilterSection title="Desszert">
+        <FilterSection title="Desszert" onClear={() => setDessert(null)}>
           <Select
             items={[{ text: 'Válassz desszertet...', value: null, id: '' }, ...mealFilterOptions.dessertOptions]}
             selectedItem={dessert}
@@ -91,7 +126,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
         </FilterSection>
       )}
 
-      <FilterSection title="Hőmérséklet">
+      <FilterSection title="Hőmérséklet" onClear={() => setTemp(null)}>
         <Select
           items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
           selectedItem={temp}
