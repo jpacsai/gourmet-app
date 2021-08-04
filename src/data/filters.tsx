@@ -1,7 +1,7 @@
-import { SelectItem } from '../components/common/Inputs/Select/Select';
+import { SelectItemType } from '../components/common/Inputs/Selects/types';
 import { Daytime, Temperature, CategoryName, DessertSubCat, MainSubCat, MeatOnlyCategory, MeatCategory } from './types';
 
-export const selectOptions = (enumOptions: string[]): SelectItem[] =>
+export const selectOptions = (enumOptions: string[]): SelectItemType[] =>
   Object.values(enumOptions).map((options, index) => ({
     text: options,
     id: index,

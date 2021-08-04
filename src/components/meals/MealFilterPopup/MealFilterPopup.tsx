@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 
 import FilterPopup from '../../common/Filters/FilterPopup/FilterPopup';
 import FilterSection from '../../common/Filters/FilterSection/FilterSection';
-import Select, { SelectItem } from '../../common/Inputs/Select/Select';
+import Select from '../../common/Inputs/Selects/Select/Select';
 
 import './MealFilterPopup.scss';
 
 import { mealFilterOptions } from '../../../data/filters';
 import { CategoryName, Daytime, MainSubCat } from '../../../data/types';
+import { SelectItemType } from '../../common/Inputs/Selects/types';
 
 type Props = {
   isOpen: boolean;
@@ -17,13 +18,13 @@ type Props = {
 };
 
 const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
-  const [daytime, setDaytime] = useState<SelectItem | null>(null);
-  const [course, setCourse] = useState<SelectItem | null>(null);
-  const [mainCourse, setMainCourse] = useState<SelectItem | null>(null);
-  const [meat, setMeat] = useState<SelectItem | null>(null);
-  const [meatOnly, setMeatOnly] = useState<SelectItem | null>(null);
-  const [dessert, setDessert] = useState<SelectItem | null>(null);
-  const [temp, setTemp] = useState<SelectItem | null>(null);
+  const [daytime, setDaytime] = useState<SelectItemType | null>(null);
+  const [course, setCourse] = useState<SelectItemType | null>(null);
+  const [mainCourse, setMainCourse] = useState<SelectItemType | null>(null);
+  const [meat, setMeat] = useState<SelectItemType | null>(null);
+  const [meatOnly, setMeatOnly] = useState<SelectItemType | null>(null);
+  const [dessert, setDessert] = useState<SelectItemType | null>(null);
+  const [temp, setTemp] = useState<SelectItemType | null>(null);
 
   const handleClearAll = () => {
     setDaytime(null);
