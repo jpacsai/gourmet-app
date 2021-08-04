@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import FilterCard from '../../components/common/Filters/FilterBar/FilterBar';
+import FilterBar from '../../components/common/Filters/FilterBar/FilterBar';
 import MealCard from '../../components/meals/MealCard/MealCard';
 import Page from '../../components/common/Page/Page';
 import QuickView from '../../components/meals/MealQuickView/MealQuickView';
@@ -21,7 +21,7 @@ const Meals: React.FC = () => {
 
   return (
     <Page title="Fogások" className="meals-page">
-      <FilterCard onClick={() => setIsFiltersOpen(true)} filterCounter={0} onClear={() => console.log('clear')} />
+      <FilterBar onClick={() => setIsFiltersOpen(true)} filterCounter={0} onClear={() => console.log('clear')} />
       <div>
         {mock_data.map((meal) => (
           <MealCard key={meal.id} meal={meal} onQuickView={handleIsOpen} />
