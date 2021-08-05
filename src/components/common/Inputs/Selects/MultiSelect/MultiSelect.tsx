@@ -28,7 +28,7 @@ const MultiSelect: React.FC<Props> = ({ items, selectedItems, onChange, classNam
     const isSelected = selectedItems?.find((selectedItem) => selectedItem.id === newItem.id);
     const newSelectedItems =
       isSelected && selectedItems
-        ? selectedItems.filter((selectedItem) => selectedItem.id === newItem.id)
+        ? selectedItems.filter((selectedItem) => selectedItem.id !== newItem.id)
         : [...(selectedItems || []), newItem];
     onChange(newSelectedItems);
   };

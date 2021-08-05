@@ -140,14 +140,11 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
         />
       </FilterSection>
 
-      <FilterSection title="Hőmérséklet" onClear={() => setTemp(null)}>
+      <FilterSection title="Hőmérséklet" onClear={() => setTemps(null)}>
         <MultiSelect
           items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
           selectedItems={temps}
-          onChange={(items) => {
-            console.log('newItems :>> ', items);
-            setTemps(items);
-          }}
+          onChange={setTemps}
           blankText="Válassz hőmérsékletet..."
         />
       </FilterSection>
