@@ -39,6 +39,7 @@ const MultiSelect: React.FC<Props> = ({ items, selectedItems, onChange, classNam
       itemRenderer={handleItemRender}
       tagRenderer={(item) => item.text}
       onItemSelect={handleChange}
+      popoverProps={{ minimal: true, usePortal: false }}
       className={classnames('multiSelect', className)}
     />
   );
