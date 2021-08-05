@@ -1,3 +1,4 @@
+@import '../../../../../styles/Colors.scss';
 @import '../globalStyles.scss';
 
 .select {
@@ -7,5 +8,9 @@
     display: flex !important;
     justify-content: space-between !important;
     width: 100%;
+  }
+
+  &__placeholder-text {
+    color: $grey_dark;
   }
 }

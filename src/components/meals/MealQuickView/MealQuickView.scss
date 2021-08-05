@@ -1,3 +1,5 @@
+@import '../../../styles/Colors.scss';
+
 .quick-view {
   &__blank-card-content {
     display: flex;
@@ -55,7 +57,7 @@
     align-items: center;
   }
   &__detail-icon {
-    color: #bc5173;
+    color: $primary;
   }
 
   &__ingredients-title {
@@ -73,7 +75,7 @@
 
   &__ingredients-list li::before {
     content: '\2022';
-    color: #bc5173;
+    color: $primary;
     font-weight: bold;
     display: inline-block;
     width: 1em;

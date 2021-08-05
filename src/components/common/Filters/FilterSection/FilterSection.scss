@@ -1,3 +1,5 @@
+@import '../../../../styles/Colors.scss';
+
 .filter-section {
   .bp3-card {
     padding: 5px;
@@ -15,7 +17,7 @@
   }
 
   &__clear {
-    color: #bc5173;
+    color: $primary;
   }
 
   &__content {

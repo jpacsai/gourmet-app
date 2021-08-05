@@ -1,7 +1,9 @@
+@import '../../../styles/Colors.scss';
+
 .page {
   padding: 20px;
   flex: 1 1;
-  background-color: #f0e4e9;
+  background-color: $dusty_light_pink;
 
   &__title {
     padding-bottom: 10px;

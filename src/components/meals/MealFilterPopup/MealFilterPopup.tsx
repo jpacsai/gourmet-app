@@ -72,7 +72,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
           items={[{ text: 'Válassz napszakot...', value: null, id: '' }, ...mealFilterOptions.daytimeOptions]}
           selectedItem={daytime}
           onChange={setDaytime}
-          blankText="Válassz napszakot..."
+          placeholder="Válassz napszakot..."
         />
       </FilterSection>
 
@@ -82,7 +82,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
             items={[{ text: 'Válassz fogást...', value: null, id: '' }, ...mealFilterOptions.courseOptions]}
             selectedItem={course}
             onChange={setCourse}
-            blankText="Válassz fogást..."
+            placeholder="Válassz fogást..."
           />
         </FilterSection>
       )}
@@ -93,7 +93,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
             items={[{ text: 'Válassz főfogás...', value: null, id: '' }, ...mealFilterOptions.mainCourseOptions]}
             selectedItem={mainCourse}
             onChange={setMainCourse}
-            blankText="Válassz főfogás..."
+            placeholder="Válassz főfogás..."
           />
         </FilterSection>
       )}
@@ -104,7 +104,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
             items={[{ text: 'Válassz húst...', value: null, id: '' }, ...mealFilterOptions.meatOnlyOptions]}
             selectedItem={meatOnly}
             onChange={setMeatOnly}
-            blankText="Válassz húst..."
+            placeholder="Válassz húst..."
           />
         </FilterSection>
       )}
@@ -115,7 +115,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
             items={[{ text: 'Válassz hús típust...', value: null, id: '' }, ...mealFilterOptions.meatOptions]}
             selectedItem={meat}
             onChange={setMeat}
-            blankText="Válassz hús típust..."
+            placeholder="Válassz hús típust..."
           />
         </FilterSection>
       )}
@@ -126,7 +126,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
             items={[{ text: 'Válassz desszertet...', value: null, id: '' }, ...mealFilterOptions.dessertOptions]}
             selectedItem={dessert}
             onChange={setDessert}
-            blankText="Válassz desszertet..."
+            placeholder="Válassz desszertet..."
           />
         </FilterSection>
       )}
@@ -136,7 +136,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
           items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
           selectedItem={temp}
           onChange={setTemp}
-          blankText="Válassz hőmérsékletet..."
+          placeholder="Válassz hőmérsékletet..."
         />
       </FilterSection>
 
@@ -145,7 +145,8 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
           items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
           selectedItems={temps}
           onChange={setTemps}
-          blankText="Válassz hőmérsékletet..."
+          placeholder="Válassz hőmérsékletet..."
+          filterByTyping={false}
         />
       </FilterSection>
     </FilterPopup>

@@ -1,3 +1,5 @@
+@import '../../../../styles/Colors.scss';
+
 .filter-popup {
   &__header {
     height: 100%;
@@ -15,7 +17,7 @@
     place-self: center end;
     padding-right: 20px;
     font-weight: bold;
-    color: #bc5173;
+    color: $primary;
   }
 
   &__content {

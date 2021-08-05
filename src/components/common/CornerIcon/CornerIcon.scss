@@ -1,21 +1,23 @@
+@import '../../../styles/Colors.scss';
+
 .corner-icon {
   position: absolute;
   padding: 8px 15px;
   background-color: rgba($color: #fff, $alpha: 0.6);
-  border-bottom: 1px rgba($color: #888, $alpha: 0.4) solid;
-  color: #616e7b;
+  border-bottom: 1px rgba($color: $grey_middle, $alpha: 0.4) solid;
+  color: $grey_dark;
 
   &.right {
     right: 0;
     border-top-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    border-left: 1px rgba($color: #888, $alpha: 0.4) solid;
+    border-left: 1px rgba($color: $grey_middle, $alpha: 0.4) solid;
   }
 
   &.left {
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    border-right: 1px rgba($color: #888, $alpha: 0.4) solid;
+    border-right: 1px rgba($color: $grey_middle, $alpha: 0.4) solid;
   }
 }
 

@@ -15,11 +15,11 @@ type Props = {
   onChange: (item: SelectItemType) => void;
   selectedItem: SelectItemType | null;
   filterable?: boolean;
-  blankText?: string;
+  placeholder?: string;
   className?: string;
 };
 
-const Select: React.FC<Props> = ({ items, selectedItem, onChange, filterable = false, blankText, className }) => {
+const Select: React.FC<Props> = ({ items, selectedItem, onChange, filterable = false, placeholder, className }) => {
   const handleItemRender = (item: SelectItemType, props: IItemRendererProps) => (
     <SelectItem item={item} rendererProps={props} active={selectedItem?.id === item.id} />
   );
@@ -34,7 +34,9 @@ const Select: React.FC<Props> = ({ items, selectedItem, onChange, filterable = f
       popoverProps={{ minimal: true, usePortal: false }}
     >
       <Button rightIcon="caret-down" className="select__button">
-        <div>{selectedItem?.text || blankText}</div>
+        <div className={classnames(placeholder ? 'select__placeholder-text' : 'select__item-text')}>
+          {selectedItem?.text || placeholder}
+        </div>
       </Button>
     </BPSelect>
   );
