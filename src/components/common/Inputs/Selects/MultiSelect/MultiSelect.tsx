@@ -20,8 +20,7 @@ type Props = {
 const MultiSelect: React.FC<Props> = ({ items, selectedItems, onChange, className }) => {
   const handleItemRender = (item: SelectItemType, props: IItemRendererProps) => {
     const isActive = selectedItems?.find((sel) => sel.id === item.id);
-    // TODO disable blank item
-    return <SelectItem item={item} rendererProps={props} active={!!isActive} />;
+    return <SelectItem item={item} rendererProps={props} active={!!isActive} disabled={item.id === ''} />;
   };
 
   const handleChange = (newItem: SelectItemType) => {
