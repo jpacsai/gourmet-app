@@ -4,11 +4,13 @@ import FilterPopup from '../../common/Filters/FilterPopup/FilterPopup';
 import FilterSection from '../../common/Filters/FilterSection/FilterSection';
 import Select from '../../common/Inputs/Selects/Select/Select';
 
+import { SelectItemType } from '../../common/Inputs/Selects/types';
+import MultiSelect from '../../common/Inputs/Selects/MultiSelect/MultiSelect';
+
 import './MealFilterPopup.scss';
 
 import { mealFilterOptions } from '../../../data/filters';
 import { CategoryName, Daytime, MainSubCat } from '../../../data/types';
-import { SelectItemType } from '../../common/Inputs/Selects/types';
 
 type Props = {
   isOpen: boolean;
@@ -25,6 +27,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
   const [meatOnly, setMeatOnly] = useState<SelectItemType | null>(null);
   const [dessert, setDessert] = useState<SelectItemType | null>(null);
   const [temp, setTemp] = useState<SelectItemType | null>(null);
+  const [temps, setTemps] = useState<SelectItemType[] | null>(null);
 
   const handleClearAll = () => {
     setDaytime(null);
@@ -34,6 +37,7 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
     setMeatOnly(null);
     setDessert(null);
     setTemp(null);
+    setTemps(null);
     onClearAll();
   };
 
@@ -132,6 +136,18 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
           items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
           selectedItem={temp}
           onChange={setTemp}
+          blankText="Válassz hőmérsékletet..."
+        />
+      </FilterSection>
+
+      <FilterSection title="Hőmérséklet" onClear={() => setTemp(null)}>
+        <MultiSelect
+          items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
+          selectedItems={temps}
+          onChange={(items) => {
+            console.log('newItems :>> ', items);
+            setTemps(items);
+          }}
           blankText="Válassz hőmérsékletet..."
         />
       </FilterSection>

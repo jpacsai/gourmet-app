@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 import { Button } from '@blueprintjs/core';
-import { Select as BPSelect } from '@blueprintjs/select';
+import { Select as BPSelect, IItemRendererProps } from '@blueprintjs/select';
 
 import SelectItem from '../SelectItem/SelectItem';
 
@@ -20,13 +20,15 @@ type Props = {
 };
 
 const Select: React.FC<Props> = ({ items, selectedItem, onChange, filterable = false, blankText, className }) => {
+  const handleItemRender = (item: SelectItemType, props: IItemRendererProps) => (
+    <SelectItem item={item} rendererProps={props} active={selectedItem?.id === item.id} />
+  );
+
   return (
     <BPSelect
       className={classnames('select', className)}
       items={items}
-      itemRenderer={(item, props) => (
-        <SelectItem item={item} rendererProps={props} active={selectedItem?.id === item.id} />
-      )}
+      itemRenderer={handleItemRender}
       onItemSelect={onChange}
       filterable={filterable}
       popoverProps={{ minimal: true, usePortal: false }}
