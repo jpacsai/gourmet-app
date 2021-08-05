@@ -131,6 +131,8 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
         </FilterSection>
       )}
 
+      {daytime?.value === Daytime.EBÉD_VACSORA && <hr />}
+
       <FilterSection title="Hőmérséklet" onClear={() => setTemp(null)}>
         <Select
           items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}

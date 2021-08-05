@@ -1,5 +1,10 @@
 .meal-filters {
   .filter-section:not(:first-of-type) {
+    margin-top: 15px;
+  }
+
+  hr {
     margin-top: 30px;
+    margin-bottom: 30px;
   }
 }

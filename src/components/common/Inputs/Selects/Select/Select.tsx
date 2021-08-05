@@ -34,7 +34,7 @@ const Select: React.FC<Props> = ({ items, selectedItem, onChange, filterable = f
       popoverProps={{ minimal: true, usePortal: false }}
     >
       <Button rightIcon="caret-down" className="select__button">
-        <div className={classnames(placeholder ? 'select__placeholder-text' : 'select__item-text')}>
+        <div className={classnames(selectedItem?.value ? 'select__item-text' : 'select__placeholder-text')}>
           {selectedItem?.text || placeholder}
         </div>
       </Button>
