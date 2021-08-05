@@ -88,12 +88,12 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onClose, onClearAll }) => {
       )}
 
       {course?.value === CategoryName.MAIN && (
-        <FilterSection title="Főfogás" onClear={handleMainCourseClear}>
+        <FilterSection title="Főétel" onClear={handleMainCourseClear}>
           <Select
-            items={[{ text: 'Válassz főfogás...', value: null, id: '' }, ...mealFilterOptions.mainCourseOptions]}
+            items={[{ text: 'Válassz főételt...', value: null, id: '' }, ...mealFilterOptions.mainCourseOptions]}
             selectedItem={mainCourse}
             onChange={setMainCourse}
-            placeholder="Válassz főfogás..."
+            placeholder="Válassz főételt..."
           />
         </FilterSection>
       )}
