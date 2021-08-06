@@ -13,7 +13,7 @@ type Props = {
   id: string;
   items: SelectItemType[];
   selectedItems: SelectItemType[] | null;
-  onChange: (items: SelectItemType[] | null, id: string) => void;
+  onChange: (items: SelectItemType[] | null, id: Props['id']) => void;
   placeholder?: string;
   filterByTyping?: boolean;
   className?: string;

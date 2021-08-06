@@ -1,159 +1,98 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import FilterPopup from '../../common/Filters/FilterPopup/FilterPopup';
 import FilterSection from '../../common/Filters/FilterSection/FilterSection';
 import Select from '../../common/Inputs/Selects/Select/Select';
 
-import { SelectItemType } from '../../common/Inputs/Selects/types';
 import MultiSelect from '../../common/Inputs/Selects/MultiSelect/MultiSelect';
 
 import './MealFilterPopup.scss';
 
 import { mealFilterOptions } from '../../../data/filters';
 import { CategoryName, Daytime, MainSubCat } from '../../../data/types';
+import { FilterState, FilterNames } from '../MealFilters/MealFilters';
+import { SelectItemType } from '../../common/Inputs/Selects/types';
 
 type Props = {
+  filters: FilterState;
   isOpen: boolean;
-  onChange: (count: number) => void;
-  onClose: () => void;
+  onChange: (item: SelectItemType | SelectItemType[] | null, id: FilterNames) => void;
+  onClear: (clearFilterName: FilterNames) => void;
   onClearAll: () => void;
+  onClose: () => void;
   className?: string;
 };
 
-type State = {
-  daytime: SelectItemType | null;
-  course: SelectItemType | null;
-  mainCourse: SelectItemType | null;
-  meat: SelectItemType | null;
-  meatOnly: SelectItemType | null;
-  dessert: SelectItemType | null;
-  temp: SelectItemType | null;
-  temps: SelectItemType[] | null;
-};
-
-const defaultState = {
-  daytime: null,
-  course: null,
-  mainCourse: null,
-  meat: null,
-  meatOnly: null,
-  dessert: null,
-  temp: null,
-  temps: null,
-};
-
-const daytimeClear: Partial<keyof State>[] = ['daytime', 'course', 'mainCourse', 'meat', 'meatOnly', 'dessert'];
-const courseClear: Partial<keyof State>[] = ['course', 'mainCourse', 'meat', 'meatOnly', 'dessert'];
-const mainCourseClear: Partial<keyof State>[] = ['mainCourse', 'meat', 'meatOnly', 'dessert'];
-const meatClear: Partial<keyof State>[] = ['meat'];
-const meatOnlyClear: Partial<keyof State>[] = ['meatOnly'];
-const dessertClear: Partial<keyof State>[] = ['dessert'];
-const tempClear: Partial<keyof State>[] = ['temp'];
-const tempsClear: Partial<keyof State>[] = ['temps'];
-
-const countFilters = (filters: State) =>
-  Object.values(filters).reduce((count, filterValue) => (filterValue ? count + 1 : count), 0);
-
-const MealFilterPopup: React.FC<Props> = ({ isOpen, onChange, onClose, onClearAll }) => {
-  const [filters, setFilters] = useState<State>(defaultState);
-
-  const handleClear = (clearFilterIds: Partial<keyof State>[]) => {
-    const clearFilters = clearFilterIds.reduce((clearIds, id) => ({ ...clearIds, [id]: null }), {});
-    const newFilters = {
-      ...filters,
-      ...clearFilters,
-    };
-    handleFilters(newFilters);
-  };
-
-  const handleClearAll = () => {
-    setFilters(defaultState);
-    onClearAll();
-  };
-
-  const handleChange = (item: SelectItemType | SelectItemType[] | null, id: string) => {
-    const newFilters = {
-      ...filters,
-      [id]: item,
-    };
-    handleFilters(newFilters);
-  };
-
-  const handleFilters = (newFilters: State) => {
-    setFilters(newFilters);
-    const filterCount = countFilters(newFilters);
-    onChange(filterCount); // TODO
-  };
-
+const MealFilterPopup: React.FC<Props> = ({ filters, isOpen, onClear, onChange, onClearAll, onClose }) => {
   const { daytime, course, mainCourse } = filters;
 
   return (
-    <FilterPopup isOpen={isOpen} onClose={onClose} onClearAll={handleClearAll} className="meal-filters">
-      <FilterSection title="Napszak" onClear={() => handleClear(daytimeClear)}>
+    <FilterPopup isOpen={isOpen} onClose={onClose} onClearAll={onClearAll} className="meal-filters">
+      <FilterSection title="Napszak" onClear={() => onClear(FilterNames.DAYTIME)}>
         <Select
-          id="daytime"
+          id={FilterNames.DAYTIME}
           items={[{ text: 'Válassz napszakot...', value: null, id: '' }, ...mealFilterOptions.daytimeOptions]}
           selectedItem={filters['daytime']}
-          onChange={handleChange}
+          onChange={(item) => onChange(item, FilterNames.DAYTIME)}
           placeholder="Válassz napszakot..."
         />
       </FilterSection>
 
       {daytime?.value === Daytime.EBÉD_VACSORA && (
-        <FilterSection title="Fogás" onClear={() => handleClear(courseClear)}>
+        <FilterSection title="Fogás" onClear={() => onClear(FilterNames.COURSE)}>
           <Select
-            id="course"
+            id={FilterNames.COURSE}
             items={[{ text: 'Válassz fogást...', value: null, id: '' }, ...mealFilterOptions.courseOptions]}
             selectedItem={filters['course']}
-            onChange={handleChange}
+            onChange={(item) => onChange(item, FilterNames.COURSE)}
             placeholder="Válassz fogást..."
           />
         </FilterSection>
       )}
 
       {course?.value === CategoryName.MAIN && (
-        <FilterSection title="Főétel" onClear={() => handleClear(mainCourseClear)}>
+        <FilterSection title="Főétel" onClear={() => onClear(FilterNames.MAIN_COURSE)}>
           <Select
-            id="mainCourse"
+            id={FilterNames.MAIN_COURSE}
             items={[{ text: 'Válassz főételt...', value: null, id: '' }, ...mealFilterOptions.mainCourseOptions]}
             selectedItem={filters['mainCourse']}
-            onChange={handleChange}
+            onChange={(item) => onChange(item, FilterNames.MAIN_COURSE)}
             placeholder="Válassz főételt..."
           />
         </FilterSection>
       )}
 
       {mainCourse?.value === MainSubCat.HÚS && (
-        <FilterSection title="Hús étel" onClear={() => handleClear(meatOnlyClear)}>
+        <FilterSection title="Hús étel" onClear={() => onClear(FilterNames.MEAT_ONLY)}>
           <Select
-            id="meatOnly"
+            id={FilterNames.MEAT_ONLY}
             items={[{ text: 'Válassz húst...', value: null, id: '' }, ...mealFilterOptions.meatOnlyOptions]}
             selectedItem={filters['meatOnly']}
-            onChange={handleChange}
+            onChange={(item) => onChange(item, FilterNames.MEAT_ONLY)}
             placeholder="Válassz húst..."
           />
         </FilterSection>
       )}
 
       {(mainCourse?.value === MainSubCat.EGYTÁL || mainCourse?.value === MainSubCat.TÉSZTA) && (
-        <FilterSection title="Hús típus" onClear={() => handleClear(meatClear)}>
+        <FilterSection title="Hús típus" onClear={() => onClear(FilterNames.MEAT)}>
           <Select
-            id="meat"
+            id={FilterNames.MEAT}
             items={[{ text: 'Válassz hús típust...', value: null, id: '' }, ...mealFilterOptions.meatOptions]}
             selectedItem={filters['meat']}
-            onChange={handleChange}
+            onChange={(item) => onChange(item, FilterNames.MEAT)}
             placeholder="Válassz hús típust..."
           />
         </FilterSection>
       )}
 
       {course?.value === CategoryName.DESSERT && (
-        <FilterSection title="Desszert" onClear={() => handleClear(dessertClear)}>
+        <FilterSection title="Desszert" onClear={() => onClear(FilterNames.DESSERT)}>
           <Select
-            id="dessert"
+            id={FilterNames.DESSERT}
             items={[{ text: 'Válassz desszertet...', value: null, id: '' }, ...mealFilterOptions.dessertOptions]}
             selectedItem={filters['dessert']}
-            onChange={handleChange}
+            onChange={(item) => onChange(item, FilterNames.DESSERT)}
             placeholder="Válassz desszertet..."
           />
         </FilterSection>
@@ -161,22 +100,22 @@ const MealFilterPopup: React.FC<Props> = ({ isOpen, onChange, onClose, onClearAl
 
       {daytime?.value === Daytime.EBÉD_VACSORA && <hr />}
 
-      <FilterSection title="Hőmérséklet" onClear={() => handleClear(tempClear)}>
+      <FilterSection title="Hőmérséklet" onClear={() => onClear(FilterNames.TEMP)}>
         <Select
-          id="temp"
+          id={FilterNames.TEMP}
           items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
           selectedItem={filters['temp']}
-          onChange={handleChange}
+          onChange={(item) => onChange(item, FilterNames.TEMP)}
           placeholder="Válassz hőmérsékletet..."
         />
       </FilterSection>
 
-      <FilterSection title="Hőmérséklet" onClear={() => handleClear(tempsClear)}>
+      <FilterSection title="Hőmérséklet" onClear={() => onClear(FilterNames.TEMPS)}>
         <MultiSelect
-          id="temps"
+          id={FilterNames.TEMPS}
           items={[{ text: 'Válassz hőmérsékletet...', value: null, id: '' }, ...mealFilterOptions.tempOptions]}
           selectedItems={filters['temps']}
-          onChange={handleChange}
+          onChange={(item) => onChange(item, FilterNames.TEMPS)}
           placeholder="Válassz hőmérsékletet..."
           filterByTyping={false}
         />

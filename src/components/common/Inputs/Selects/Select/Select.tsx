@@ -13,7 +13,7 @@ import { SelectItemType } from '../types';
 type Props = {
   id: string;
   items: SelectItemType[];
-  onChange: (item: SelectItemType | null, id: string) => void;
+  onChange: (item: SelectItemType | null, id: Props['id']) => void;
   selectedItem: SelectItemType | null;
   filterable?: boolean;
   placeholder?: string;
