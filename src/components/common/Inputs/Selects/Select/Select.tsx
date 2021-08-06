@@ -11,15 +11,16 @@ import './Select.scss';
 import { SelectItemType } from '../types';
 
 type Props = {
+  id: string;
   items: SelectItemType[];
-  onChange: (item: SelectItemType) => void;
+  onChange: (item: SelectItemType | null, id: string) => void;
   selectedItem: SelectItemType | null;
   filterable?: boolean;
   placeholder?: string;
   className?: string;
 };
 
-const Select: React.FC<Props> = ({ items, selectedItem, onChange, filterable = false, placeholder, className }) => {
+const Select: React.FC<Props> = ({ id, items, selectedItem, onChange, filterable = false, placeholder, className }) => {
   const handleItemRender = (item: SelectItemType, props: IItemRendererProps) => (
     <SelectItem item={item} rendererProps={props} active={selectedItem?.id === item.id} />
   );
@@ -29,7 +30,7 @@ const Select: React.FC<Props> = ({ items, selectedItem, onChange, filterable = f
       className={classnames('select', className)}
       items={items}
       itemRenderer={handleItemRender}
-      onItemSelect={onChange}
+      onItemSelect={(item) => onChange(item, id)}
       filterable={filterable}
       popoverProps={{ minimal: true, usePortal: false }}
     >

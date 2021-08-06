@@ -10,15 +10,17 @@ import './MultiSelect.scss';
 import { SelectItemType } from '../types';
 
 type Props = {
+  id: string;
   items: SelectItemType[];
   selectedItems: SelectItemType[] | null;
-  onChange: (items: SelectItemType[]) => void;
+  onChange: (items: SelectItemType[] | null, id: string) => void;
   placeholder?: string;
   filterByTyping?: boolean;
   className?: string;
 };
 
 const MultiSelect: React.FC<Props> = ({
+  id,
   items,
   selectedItems,
   onChange,
@@ -37,7 +39,7 @@ const MultiSelect: React.FC<Props> = ({
       isSelected && selectedItems
         ? selectedItems.filter((selectedItem) => selectedItem.id !== newItem.id)
         : [...(selectedItems || []), newItem];
-    onChange(newSelectedItems);
+    onChange(newSelectedItems, id);
   };
 
   return (
