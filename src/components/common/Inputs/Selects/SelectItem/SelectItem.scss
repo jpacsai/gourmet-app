@@ -1,2 +1,19 @@
+@import '../../../../../styles/Colors.scss';
+
 .selectItem {
+  align-items: center !important;
+
+  &__active.bp3-menu-item.bp3-active.bp3-intent-primary.bp3-popover-dismiss:not(.selectItem__blank) {
+    background-color: $dusty_light_pink;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.bp3-menu-item:hover:not(.selectItem__active),
+.bp3-submenu .bp3-popover-target.bp3-popover-open > .bp3-menu-item :not(.selectItem__active) {
+  background-color: transparent !important;
 }

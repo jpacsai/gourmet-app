@@ -27,7 +27,7 @@ const Clear: React.FC<Props> = ({ onClick, fontSize = 14, displayIcon = true, bo
       >
         Clear
       </span>
-      {displayIcon && <Icon icon="cross" iconSize={fontSize + 2} />}
+      {displayIcon && <Icon icon="cross" size={fontSize + 2} />}
     </div>
   );
 };

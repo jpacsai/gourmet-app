@@ -20,7 +20,7 @@ const CornerIcon: React.FC<Props> = ({ icon, onClick, position = 'right', classN
 
   return (
     <div className={classnames('corner-icon', position, className)} onClick={handleClick}>
-      <Icon icon={icon} iconSize={20} />
+      <Icon icon={icon} size={20} />
     </div>
   );
 };

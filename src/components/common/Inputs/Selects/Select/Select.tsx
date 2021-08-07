@@ -22,7 +22,7 @@ type Props = {
 
 const Select: React.FC<Props> = ({ id, items, selectedItem, onChange, filterable = false, placeholder, className }) => {
   const handleItemRender = (item: SelectItemType, props: IItemRendererProps) => (
-    <SelectItem item={item} rendererProps={props} active={selectedItem?.id === item.id} />
+    <SelectItem item={item} rendererProps={props} active={selectedItem?.id === item.id} blank={!item.value} />
   );
 
   return (

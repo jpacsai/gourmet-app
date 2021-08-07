@@ -43,5 +43,6 @@
 }
 
 .bp3-menu-item.bp3-active.bp3-intent-primary.bp3-popover-dismiss {
-  background-color: $primary;
+  background-color: transparent;
+  color: $black_almost;
 }

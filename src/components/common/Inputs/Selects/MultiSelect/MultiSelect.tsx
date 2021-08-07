@@ -30,7 +30,7 @@ const MultiSelect: React.FC<Props> = ({
 }) => {
   const handleItemRender = (item: SelectItemType, props: IItemRendererProps) => {
     const isActive = selectedItems?.find((sel) => sel.id === item.id);
-    return <SelectItem item={item} rendererProps={props} active={!!isActive} disabled={item.id === ''} />;
+    return <SelectItem item={item} rendererProps={props} active={!!isActive} disabled={item.id === ''} multiSelect />;
   };
 
   const handleChange = (newItem: SelectItemType) => {
