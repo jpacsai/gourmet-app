@@ -1,4 +1,9 @@
 @import '../globalStyles.scss';
+@import '../../../../../styles/Colors.scss';
 
 .multiSelect {
+  .bp3-tag {
+    background-color: $dusty_light_pink;
+    color: black;
+  }
 }

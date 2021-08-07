@@ -50,13 +50,20 @@ const MultiSelect: React.FC<Props> = ({
       onItemSelect={handleChange}
       popoverProps={{ minimal: true, usePortal: false }}
       tagInputProps={{
+        tagProps: {
+          className: 'multiSelect__tag',
+        },
         inputProps: {
           readOnly: !filterByTyping,
         },
       }}
       placeholder={placeholder}
       className={classnames('multiSelect', className)}
-    />
+      selectedItems={selectedItems || undefined}
+      onRemove={handleChange}
+    >
+      <article />
+    </BPMultiSelect>
   );
 };
 
