@@ -10,7 +10,7 @@ import './MealFilterPopup.scss';
 
 import { mealFilterOptions } from '../../../data/filters';
 import { CategoryName, Daytime, MainSubCat } from '../../../data/types';
-import { FilterState, FilterNames } from '../MealFilters/MealFilters';
+import { FilterState, FilterNames } from '../MealFilters/helpers';
 import { SelectItemType } from '../../common/Inputs/Selects/types';
 
 type Props = {
