@@ -58,19 +58,19 @@ export const clearFiltersMap = createFilters({
 const countFilters = (filters: FilterState) =>
   Object.values(filters).reduce((count, filterValue) => (filterValue ? count + 1 : count), 0);
 
+const clearFilters = (clearFilterName: FilterNames) =>
+  Array.from(clearFiltersMap[clearFilterName]).reduce((clearIds, id) => ({ ...clearIds, [id]: null }), {});
+
 const MealFilters: React.FC = () => {
   const [isFiltersOpen, setIsFiltersOpen] = useState<boolean>(false);
   const [filters, setFilters] = useState<FilterState>(defaultState);
   const [filterCount, setFilterCount] = useState<number>(0);
 
   const handleClear = (clearFilterName: FilterNames) => {
-    const clearFilters = Array.from(clearFiltersMap[clearFilterName]).reduce(
-      (clearIds, id) => ({ ...clearIds, [id]: null }),
-      {}
-    );
+    const clearedFilters = clearFilters(clearFilterName);
     const newFilters = {
       ...filters,
-      ...clearFilters,
+      ...clearedFilters,
     };
     handleFilters(newFilters);
   };
@@ -81,8 +81,10 @@ const MealFilters: React.FC = () => {
   };
 
   const handleChange = (item: SelectItemType | SelectItemType[] | null, id: FilterNames) => {
+    const clearedFilters = clearFilters(id);
     const newFilters = {
       ...filters,
+      ...clearedFilters,
       [id]: item,
     };
     handleFilters(newFilters);
