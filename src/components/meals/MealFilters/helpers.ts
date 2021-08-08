@@ -1,13 +1,13 @@
 import { SelectItemType } from '../../common/Inputs/Selects/types';
+import { CategoryName, MainSubCat } from '../../../data/types';
 
 export type FilterState = {
   daytime: SelectItemType | null;
   course: SelectItemType | null;
-  mainCourse: SelectItemType | null;
-  meat: SelectItemType | null;
-  meatOnly: SelectItemType | null;
-  dessert: SelectItemType | null;
-  temp: SelectItemType | null;
+  mainCourse: SelectItemType[] | null;
+  meat: SelectItemType[] | null;
+  meatOnly: SelectItemType[] | null;
+  dessert: SelectItemType[] | null;
   temps: SelectItemType[] | null;
 };
 
@@ -18,7 +18,6 @@ export const defaultState = {
   meat: null,
   meatOnly: null,
   dessert: null,
-  temp: null,
   temps: null,
 };
 
@@ -29,7 +28,6 @@ export enum FilterNames {
   MEAT = 'meat',
   MEAT_ONLY = 'meatOnly',
   DESSERT = 'dessert',
-  TEMP = 'temp',
   TEMPS = 'temps',
 }
 
@@ -46,7 +44,6 @@ export const clearFiltersMap = createFilters({
   meat: ['meat'],
   meatOnly: ['meatOnly'],
   dessert: ['dessert'],
-  temp: ['temp'],
   temps: ['temps'],
 });
 
@@ -55,3 +52,10 @@ export const countFilters = (filters: FilterState) =>
 
 export const clearFilters = (clearFilterName: FilterNames) =>
   Array.from(clearFiltersMap[clearFilterName]).reduce((clearIds, id) => ({ ...clearIds, [id]: null }), {});
+
+export const hasFilter = (filters: SelectItemType[] | null, filterType: string | string[]): boolean => {
+  if (!filters) return false;
+  const filterValues = filters.reduce((acc: string[], filter) => (filter.value ? [...acc, filter.value] : acc), []);
+  const filterTypeArr = Array.isArray(filterType) ? filterType : [filterType];
+  return filterValues.some((item) => filterTypeArr.includes(item));
+};
