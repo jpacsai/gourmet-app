@@ -62,7 +62,20 @@ const MealFilterPopup: React.FC<Props> = ({ filters, isOpen, onClear, onChange, 
         </FilterSection>
       )}
 
-      {hasFilter(mainCourse, MainSubCat.HÚS) && (
+      {hasFilter(mainCourse, [MainSubCat.HÚS, MainSubCat.EGYTÁL, MainSubCat.TÉSZTA]) && (
+        <FilterSection title="Hús" onClear={() => onClear(FilterNames.MEATS)}>
+          <MultiSelect
+            id={FilterNames.MEATS}
+            items={[{ text: 'Válassz húst...', value: null, id: '' }, ...mealFilterOptions.meatOnlyOptions]}
+            selectedItems={filters['meats']}
+            onChange={(item) => onChange(item, FilterNames.MEATS)}
+            placeholder="Válassz húst..."
+            filterByTyping={false}
+          />
+        </FilterSection>
+      )}
+
+      {/* {hasFilter(mainCourse, MainSubCat.HÚS) && (
         <FilterSection title="Hús étel" onClear={() => onClear(FilterNames.MEAT_ONLY)}>
           <MultiSelect
             id={FilterNames.MEAT_ONLY}
@@ -86,7 +99,7 @@ const MealFilterPopup: React.FC<Props> = ({ filters, isOpen, onClear, onChange, 
             filterByTyping={false}
           />
         </FilterSection>
-      )}
+      )} */}
 
       {course?.value === CategoryName.DESSERT && (
         <FilterSection title="Desszert" onClear={() => onClear(FilterNames.DESSERT)}>

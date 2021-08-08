@@ -1,11 +1,11 @@
 import { SelectItemType } from '../../common/Inputs/Selects/types';
-import { CategoryName, MainSubCat } from '../../../data/types';
 
 export type FilterState = {
   daytime: SelectItemType | null;
   course: SelectItemType | null;
   mainCourse: SelectItemType[] | null;
   meat: SelectItemType[] | null;
+  meats: SelectItemType[] | null;
   meatOnly: SelectItemType[] | null;
   dessert: SelectItemType[] | null;
   temps: SelectItemType[] | null;
@@ -16,6 +16,7 @@ export const defaultState = {
   course: null,
   mainCourse: null,
   meat: null,
+  meats: null,
   meatOnly: null,
   dessert: null,
   temps: null,
@@ -26,6 +27,7 @@ export enum FilterNames {
   COURSE = 'course',
   MAIN_COURSE = 'mainCourse',
   MEAT = 'meat',
+  MEATS = 'meats',
   MEAT_ONLY = 'meatOnly',
   DESSERT = 'dessert',
   TEMPS = 'temps',
@@ -42,6 +44,7 @@ export const clearFiltersMap = createFilters({
   course: ['course', 'mainCourse', 'meat', 'meatOnly', 'dessert'],
   mainCourse: ['mainCourse', 'meat', 'meatOnly', 'dessert'],
   meat: ['meat'],
+  meats: ['meats'],
   meatOnly: ['meatOnly'],
   dessert: ['dessert'],
   temps: ['temps'],
