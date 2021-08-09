@@ -4,10 +4,8 @@ export type FilterState = {
   daytime: SelectItemType | null;
   course: SelectItemType | null;
   mainCourse: SelectItemType[] | null;
-  meat: SelectItemType[] | null;
   meats: SelectItemType[] | null;
-  meatOnly: SelectItemType[] | null;
-  dessert: SelectItemType[] | null;
+  desserts: SelectItemType[] | null;
   temps: SelectItemType[] | null;
 };
 
@@ -15,10 +13,8 @@ export const defaultState = {
   daytime: null,
   course: null,
   mainCourse: null,
-  meat: null,
   meats: null,
-  meatOnly: null,
-  dessert: null,
+  desserts: null,
   temps: null,
 };
 
@@ -26,10 +22,8 @@ export enum FilterNames {
   DAYTIME = 'daytime',
   COURSE = 'course',
   MAIN_COURSE = 'mainCourse',
-  MEAT = 'meat',
   MEATS = 'meats',
-  MEAT_ONLY = 'meatOnly',
-  DESSERT = 'dessert',
+  DESSERTS = 'desserts',
   TEMPS = 'temps',
 }
 
@@ -40,13 +34,11 @@ export type ClearFiltersMap = {
 const createFilters = <T extends ClearFiltersMap>(filters: T) => filters;
 
 export const clearFiltersMap = createFilters({
-  daytime: ['daytime', 'course', 'mainCourse', 'meat', 'meatOnly', 'dessert'],
-  course: ['course', 'mainCourse', 'meat', 'meatOnly', 'dessert'],
-  mainCourse: ['mainCourse', 'meat', 'meatOnly', 'dessert'],
-  meat: ['meat'],
+  daytime: ['daytime', 'course', 'mainCourse', 'meats', 'desserts'],
+  course: ['course', 'mainCourse', 'meats', 'desserts'],
+  mainCourse: ['mainCourse', 'meats', 'desserts'],
   meats: ['meats'],
-  meatOnly: ['meatOnly'],
-  dessert: ['dessert'],
+  desserts: ['desserts'],
   temps: ['temps'],
 });
 

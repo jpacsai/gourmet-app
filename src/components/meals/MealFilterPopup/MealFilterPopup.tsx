@@ -66,7 +66,12 @@ const MealFilterPopup: React.FC<Props> = ({ filters, isOpen, onClear, onChange, 
         <FilterSection title="Hús" onClear={() => onClear(FilterNames.MEATS)}>
           <MultiSelect
             id={FilterNames.MEATS}
-            items={[{ text: 'Válassz húst...', value: null, id: '' }, ...mealFilterOptions.meatOnlyOptions]}
+            items={[
+              { text: 'Válassz húst...', value: null, id: '' },
+              ...(hasFilter(mainCourse, [MainSubCat.EGYTÁL, MainSubCat.TÉSZTA])
+                ? mealFilterOptions.meatOptions
+                : mealFilterOptions.meatOnlyOptions),
+            ]}
             selectedItems={filters['meats']}
             onChange={(item) => onChange(item, FilterNames.MEATS)}
             placeholder="Válassz húst..."
@@ -75,39 +80,13 @@ const MealFilterPopup: React.FC<Props> = ({ filters, isOpen, onClear, onChange, 
         </FilterSection>
       )}
 
-      {/* {hasFilter(mainCourse, MainSubCat.HÚS) && (
-        <FilterSection title="Hús étel" onClear={() => onClear(FilterNames.MEAT_ONLY)}>
-          <MultiSelect
-            id={FilterNames.MEAT_ONLY}
-            items={[{ text: 'Válassz húst...', value: null, id: '' }, ...mealFilterOptions.meatOnlyOptions]}
-            selectedItems={filters['meatOnly']}
-            onChange={(item) => onChange(item, FilterNames.MEAT_ONLY)}
-            placeholder="Válassz húst..."
-            filterByTyping={false}
-          />
-        </FilterSection>
-      )}
-
-      {hasFilter(mainCourse, [MainSubCat.EGYTÁL, MainSubCat.TÉSZTA]) && (
-        <FilterSection title="Hús típus" onClear={() => onClear(FilterNames.MEAT)}>
-          <MultiSelect
-            id={FilterNames.MEAT}
-            items={[{ text: 'Válassz hús típust...', value: null, id: '' }, ...mealFilterOptions.meatOptions]}
-            selectedItems={filters['meat']}
-            onChange={(item) => onChange(item, FilterNames.MEAT)}
-            placeholder="Válassz hús típust..."
-            filterByTyping={false}
-          />
-        </FilterSection>
-      )} */}
-
       {course?.value === CategoryName.DESSERT && (
-        <FilterSection title="Desszert" onClear={() => onClear(FilterNames.DESSERT)}>
+        <FilterSection title="Desszert" onClear={() => onClear(FilterNames.DESSERTS)}>
           <MultiSelect
-            id={FilterNames.DESSERT}
+            id={FilterNames.DESSERTS}
             items={[{ text: 'Válassz desszert típust...', value: null, id: '' }, ...mealFilterOptions.dessertOptions]}
-            selectedItems={filters['dessert']}
-            onChange={(item) => onChange(item, FilterNames.DESSERT)}
+            selectedItems={filters['desserts']}
+            onChange={(item) => onChange(item, FilterNames.DESSERTS)}
             placeholder="Válassz desszert típust..."
             filterByTyping={false}
           />
