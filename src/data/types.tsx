@@ -20,7 +20,7 @@ export enum Cost {
   NAGYON_DRÁGA = 'Nagyon drága',
 }
 
-export enum Cousine {
+export enum Cuisine {
   MAGYAR = 'Magyar',
   OLASZ = 'Olasz',
   SPANYOL = 'Spanyol',
@@ -56,7 +56,7 @@ export type MealWithoutDetails = {
   category?: Category;
   dish_parts: DishPart[];
   prep: Preparation;
-  couisine?: Cousine;
+  cuisine?: Cuisine;
   likes?: Likes[];
   wine?: string[];
 };

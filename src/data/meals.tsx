@@ -9,7 +9,7 @@ import {
   Temperature,
   MeatCategory,
   MeatOnlyCategory,
-  Cousine,
+  Cuisine,
 } from './types';
 
 import { jercemell_roston, mock_dishPart } from './dishParts';
@@ -153,7 +153,7 @@ const carpaccio_burg_kel: MealWithoutDetails = {
   id: 7,
   name: 'Carpaccio, parázsburgonya, kel, sült paprika, füstölt halas majonéz, jus, olíva, lime',
   time: [Daytime.EBÉD_VACSORA],
-  couisine: Cousine.OLASZ,
+  cuisine: Cuisine.OLASZ,
   category: {
     name: CategoryName.MAIN,
     sub_category: {
@@ -178,7 +178,7 @@ const mandulas_flodni: MealWithoutDetails = {
   id: 8,
   name: 'Mandulás flódni, forralt bor sorbet, édes morzsa',
   time: [Daytime.EBÉD_VACSORA],
-  couisine: Cousine.ZSIDÓ,
+  cuisine: Cuisine.ZSIDÓ,
   category: {
     name: CategoryName.DESSERT,
     sub_category: {

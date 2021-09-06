@@ -6,8 +6,8 @@ export default class MealsController {
     const page = req.query.page ? parseInt(req.query.page, 10) : 0;
 
     let filters = {};
-    if (req.query.cousine) {
-      filters.cousine = req.query.cousine;
+    if (req.query.cuisine) {
+      filters.cuisine = req.query.cuisine;
     } else if (req.query.zipcode) {
       filters.zipcode = req.query.zipcode;
     } else if (req.query.name) {
